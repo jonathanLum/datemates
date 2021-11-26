@@ -4,7 +4,7 @@
   In the interest of professionalism and giving dating the structure and administrative beurocracy it has always deserved,
   {{{name}}} has requested you fill out this optional exit survey. Thank you!</p>
 <div id="Formbox">
-  <form id="Form">
+  <form id="Form" action="/surveyaction" method="post">
     <div class="formbox">
       <label for="Performance">On a scale of Awkward to Charming, how would you rate {{{name}}}'s performance?</label>
       <ol id="Performance">
@@ -48,10 +48,15 @@
     </div>
 
     <div class="formbox">
-      <label for="Additions">Any additions or things I should know?</label><br>
-      <input type="text" id="Additions" placeholder="Your answer">
+      <label for="Song">What words might you use, in a future song or TikTok, to describe your experience?</label><br>
+      <input type="text" id="Song" placeholder="Your answer">
     </div>
 
-    <input type="button" id="Submit" value="Submit">
+    <div class="formbox">
+      <label for="Comments">Any further comments:</label><br>
+      <input type="text" id="Comments" placeholder="Your answer">
+    </div>
+
+    <input type="submit" id="Submit" value="Submit">
   </form>
 </div>

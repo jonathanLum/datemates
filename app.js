@@ -33,6 +33,13 @@ app.get('/survey/:email/:name',function(req,res){
   res.render('survey', context);
 });
 
+app.post('/inviteaction',function(req,res){
+
+});
+
+app.post('/surveyaction',function(req,res){
+
+});
 
 
 app.use(function(req,res){

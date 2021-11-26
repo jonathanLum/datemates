@@ -3,7 +3,7 @@
 <p>You have agreed to go on a date with {{{name}}} Congratulations! They promise a good time with your preferences in mind.</p>
 
 <div id="Formbox">
-  <form id="Form">
+  <form id="Form" action="/inviteaction" method="post">
     <div class="formbox">
       <label for="Name">What is your name?</label><br>
       <input type="text" id="Name"><br>
@@ -82,6 +82,6 @@
       <input type="text" id="Additions" placeholder="Your answer">
     </div>
 
-    <input type="button" id="Submit" value="Submit">
+    <input type="submit" id="Submit" value="Submit">
   </form>
 </div>
