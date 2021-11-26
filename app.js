@@ -19,15 +19,17 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
-app.get('/invite/:id',function(req,res){
+app.get('/invite/:email/:name',function(req,res){
   var context = {};
-  context.email = atob(req.params.id);
+  context.email = atob(req.params.email);
+  context.name = atob(req.params.name);
   res.render('invite', context);
 });
 
-app.get('/survey/:id',function(req,res){
+app.get('/survey/:email/:name',function(req,res){
   var context = {};
-  context.email = atob(req.params.id);
+  context.email = atob(req.params.email);
+  context.name = atob(req.params.name);
   res.render('survey', context);
 });
 
