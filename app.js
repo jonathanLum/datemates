@@ -20,11 +20,13 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
-app.get('/invite/',function(req,res){
-  res.render('invite');
+app.get('/invite/{id}',function(req,res){
+  var context = {};
+  context.email = id;
+  res.render('invite', context);
 });
 
-app.get('/survey/',function(req,res){
+app.get('/survey/{id}',function(req,res){
   res.render('survey');
 });
 
