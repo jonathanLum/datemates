@@ -1,0 +1,19 @@
+{
+  "name": "datemates",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathanLum/datemates.git"
+  },
+  "author": "Jonathan Lumsden",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonathanLum/datemates/issues"
+  },
+  "homepage": "https://github.com/jonathanLum/datemates"
+}
