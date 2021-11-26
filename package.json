@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/jonathanLum/datemates/issues"
   },
-  "homepage": "https://github.com/jonathanLum/datemates"
+  "homepage": "https://github.com/jonathanLum/datemates",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^6.0.2",
+    "handlebars": "^4.7.7",
+    "nodejs": "0.0.0"
+  }
 }
