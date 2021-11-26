@@ -1,0 +1,45 @@
+<h1>Exit Survey - Date Mates!</h1>
+
+<p>Thank you for going on a date with {{{email}}}! They had a great time. 
+  In the interest of professionalism and giving dating the structure and administrative beurocracy it has always deserved,
+  {{{email}}} has requested you fill out this optional exit survey. Thank you!</p>
+<div id="Formbox">
+  <form id="Form">
+    <div class="formbox">
+      <label for="Performance">On a scale of Awkward to Charming, how would you rate {{{email}}}'s performance?</label>
+      <ol id="Performance">
+        <label>Awkward</label>
+        <li><input type="radio" id="T" name="performance"><label for="T"></label></li>
+        <li><input type="radio" id="I" name="performance"><label for="I"></label></li>
+        <li><input type="radio" id="B" name="performance"><label for="B"></label></li>
+        <li><input type="radio" id="S" name="performance"><label for="S"></label></li>
+        <li><input type="radio" id="V" name="performance"><label for="V"></label></li>
+        <label>Charming</label>
+      </ol>
+    </div>
+
+    <div class="formbox">
+      <label for="Blue">Describe our date as a shade of blue.</label><br>
+      <input type="text" id="Blue" placeholder="Your answer">
+    </div>
+
+    <div class="formbox">
+      <label for="Symptoms">At any point in our date did you experience the following:</label>
+      <ul id="Symptoms">
+        <li><input type="checkbox" id="I"><label for="I">Indian</label></li>
+        <li><input type="checkbox" id="T"><label for="T">Thai Food</label></li>
+        <li><input type="checkbox" id="B"><label for="B">Burgers</label></li>
+        <li><input type="checkbox" id="S"><label for="S">Steakhouse</label></li>
+        <li><input type="checkbox" id="V"><label for="V">Hilarious Vegan Options</label></li>
+        <li><input type="checkbox" id="FO"><label for="FO">Other: </label><input type="text" id="FOIn"></li>
+      </ul>
+    </div>
+
+    <div class="formbox">
+      <label for="Additions">Any additions or things I should know?</label><br>
+      <input type="text" id="Additions" placeholder="Your answer">
+    </div>
+
+    <input type="button" id="Submit" value="Submit">
+  </form>
+</div>
