@@ -13,8 +13,8 @@
     <label>(This site does not use a database and does NOT save this email or any personal information)</label>
     <input type="button" value="Submit" id="Submit">
   </form>
-  <label id="InviteLink">Invite link: </label><br>
-  <label id="SurveyLink">Survey link: </label>
+  <label>Invite link: <a href="" id="InviteLink"></a></label><br>
+  <label>Survey link: <a href="" id="SurveyLink"></a></label>
 
   <script>
     document.getElementById("Submit").onclick = function() {myFunction()};
@@ -25,8 +25,10 @@
       var name = document.getElementById("name").value;
       var codedname = btoa(name)
 
-      document.getElementById("InviteLink").innerHTML = `Invite link: https://datemates.herokuapp.com/invite/${codedemail}/${codedname}`;
-      document.getElementById("SurveyLink").innerHTML = `Survey link: https://datemates.herokuapp.com/survey/${codedemail}/${codedname}`;
+      document.getElementById("InviteLink").href = `https://datemates.herokuapp.com/invite/${codedemail}/${codedname}`;
+      document.getElementById("InviteLink").textContent = `https://datemates.herokuapp.com/invite/${codedemail}/${codedname}`;
+      document.getElementById("SurveyLink").href = `https://datemates.herokuapp.com/survey/${codedemail}/${codedname}`;
+      document.getElementById("SurveyLink").textContent = `https://datemates.herokuapp.com/survey/${codedemail}/${codedname}`;
     }
 </script>
 </div>
