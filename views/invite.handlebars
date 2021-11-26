@@ -4,18 +4,39 @@
 
 <div id="Formbox">
   <form id="Form">
-    <label for="name">What is your name?</label><br>
-    <input type="text" id="name"><br>
+    <div class="formbox">
+      <label for="Name">What is your name?</label><br>
+      <input type="text" id="Name"><br>
+    </div>
 
-    <label for="date">What time would you like to start?</label><br>
-    <input type="datetime-local" id="date"><br>
+    <div class="formbox">
+      <label for="Date">What time would you like to start?</label><br>
+      <input type="datetime-local" id="Date"><br>
+    </div>
 
-    <label for="date">What style date would you like?</label>
-    <ol id="style">
-      <li><input type="checkbox" id="DM"><label for="DM">Dinner and a Movie</label></li>
-      <li><input type="checkbox" id="DA"><label for="DA">Dinner and Art Exhibit/Museum</label></li>
-      <li><input type="checkbox" id="HO"><label for="HO">Hike or Outdoor activity</label></li>
-      <li><input type="checkbox" id="BI"><label for="BI">Beach Day and Ice Cream</label></li>
-    </ol>
+    <div class="formbox">
+      <label for="Style">What style date would you like?</label>
+      <ol id="Style">
+        <li><input type="checkbox" id="DM"><label for="DM">Dinner and a Movie</label></li>
+        <li><input type="checkbox" id="DA"><label for="DA">Dinner and Art Exhibit/Museum</label></li>
+        <li><input type="checkbox" id="HO"><label for="HO">Hike or Outdoor activity</label></li>
+        <li><input type="checkbox" id="BI"><label for="BI">Beach Day and Ice Cream</label></li>
+        <li><input type="checkbox" id="SH"><label for="SH">Skating and Hot Chocolate (hand holding optional)</label></li>
+        <li><input type="checkbox" id="LT"><label for="LT">Laser Tag</label></li>
+        <li><input type="checkbox" id="BI"><label for="BI">Trampoline</label></li>
+      </ol>
+    </div>
+
+    <div class="formbox">
+      <label for="Food">What kind of food do you enjoy?</label>
+      <ol id="Food">
+        <li><input type="checkbox" id="I"><label for="I">Indian</label></li>
+        <li><input type="checkbox" id="T"><label for="T">Thai Food</label></li>
+        <li><input type="checkbox" id="B"><label for="B">Burgers</label></li>
+        <li><input type="checkbox" id="S"><label for="S">Steakhouse</label></li>
+        <li><input type="checkbox" id="V"><label for="V">Hilarious Vegan Options</label></li>
+        <li><input type="checkbox" id="O"><label for="O">Other: </label><input type="text" id="OIn"></li>
+      </ol>
+    </div>
   </form>
 </div>
