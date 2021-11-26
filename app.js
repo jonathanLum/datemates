@@ -20,11 +20,11 @@ app.get('/',function(req,res){
   res.render('home');
 });
 
-app.get('/invite/{#id}',function(req,res){
+app.get('/invite/',function(req,res){
   res.render('invite');
 });
 
-app.get('/survey/{#id}',function(req,res){
+app.get('/survey/',function(req,res){
   res.render('survey');
 });
 
