@@ -10,7 +10,20 @@
     <label for="email">Enter email below to receive your date links!</label><br>
     <input type="email" id="email" placeholder="exampleEmail@gmail.com"><br>
     <label>(This site does not use a database and does NOT save this email or any personal information)</label>
+    <input type="button" value="Submit" id="Submit">
   </form>
   <label id="InviteLink">Invite link: </label><br>
   <label id="SurveyLink">Survey link: </label>
+
+  <script>
+    document.getElementById("Submit").onclick = function() {myFunction()};
+
+    function myFunction() {
+      var email = document.getElementById("email").value;
+      var codedemail = btoa(email)
+
+      document.getElementById("InviteLink").innerHTML = "Invite link: https://datemates.herokuapp.com/invite/${codedemail}";
+      document.getElementById("SurveyLink").innerHTML = "Survey link: https://datemates.herokuapp.com/survey/${codedemail}";
+    }
+</script>
 </div>

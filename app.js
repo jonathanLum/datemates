@@ -22,7 +22,7 @@ app.get('/',function(req,res){
 
 app.get('/invite/:id',function(req,res){
   var context = {};
-  context.email = req.params.id;
+  context.email = atob(req.params.id);
   res.render('invite', context);
 });
 
