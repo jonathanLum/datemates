@@ -12,8 +12,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', port);
 
-
-
+var atob = require('atob');
 
 
 app.get('/',function(req,res){
@@ -22,13 +21,13 @@ app.get('/',function(req,res){
 
 app.get('/invite/:id',function(req,res){
   var context = {};
-  context.email = req.params.id;
+  context.email = atob(req.params.id);
   res.render('invite', context);
 });
 
 app.get('/survey/:id',function(req,res){
   var context = {};
-  context.email = req.params.id;
+  context.email = atob(req.params.id);
   res.render('survey', context);
 });
 
