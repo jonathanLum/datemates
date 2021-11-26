@@ -34,7 +34,7 @@ app.get('/survey/:email/:name',function(req,res){
 });
 
 app.post('/inviteaction',function(req,res){
-
+  res.send(req.body)
 });
 
 app.post('/surveyaction',function(req,res){
