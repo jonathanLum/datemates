@@ -35,7 +35,11 @@ app.get('/survey/:email/:name',function(req,res){
 
 app.post('/inviteaction',function(req,res){
   var data = req.body
-  res.send(data)
+  var message = "Invite Form Results\n"
+  for (var key in data){
+    message += `${key}: ${data[key]}\n`
+  }
+  res.send(message)
 });
 
 app.post('/surveyaction',function(req,res){
