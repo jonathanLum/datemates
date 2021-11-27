@@ -34,12 +34,15 @@ app.get('/survey/:email/:name',function(req,res){
 });
 
 app.post('/inviteaction',function(req,res){
-  var data = req.body
-  var message = "Invite Form Results\n"
+  var data = req.body;
+  var message = "Invite Form Results\n";
   for (var key in data){
-    message += `${key}: ${data[key]}\n`
+    if (data[key] == null){
+      next;
+    }
+    message += `${key}: ${data[key]}\n`;
   }
-  res.send(message)
+  res.send(message);
 });
 
 app.post('/surveyaction',function(req,res){
