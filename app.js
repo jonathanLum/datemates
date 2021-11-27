@@ -17,10 +17,15 @@ var atob = require('atob');
 
 
 var transporter = nodemailer.createTransport({
-  service: 'Outlook365',
+  host: 'smtp.office365.com', // Office 365 server
+  port: 587,     // secure SMTP
+  secure: false,
   auth: {
     user: 'no-reply@datemates.fun',
     pass: 'loomCayman345'
+  },
+  tls: {
+    ciphers: 'SSLv3'
   }
 });
 
@@ -52,7 +57,13 @@ app.post('/invite/:email/:name',function(req,res){
     from: 'no-reply@datemates.fun',
     to: email,
     subject: `Date Mates: Enjoy your date ${name}!`,
-    text: message
+    text: message,
+    dsn: {
+      id: 'some random message specific id',
+      return: 'headers',
+      notify: ['failure', 'delay'],
+      recipient: 'no-reply@datemates.fun'
+  }
   };
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
