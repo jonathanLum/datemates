@@ -38,7 +38,7 @@ app.post('/inviteaction',function(req,res){
 });
 
 app.post('/surveyaction',function(req,res){
-
+  res.send(req.body)
 });
 
 
