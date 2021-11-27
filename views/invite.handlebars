@@ -6,12 +6,12 @@
   <form id="Form" action="/inviteaction" method="post">
     <div class="formbox">
       <label for="Name">What is your name?</label><br>
-      <input type="text" id="Name"><br>
+      <input type="text" id="Name" name="name"><br>
     </div>
 
     <div class="formbox">
       <label for="Date">What time would you like to start?</label><br>
-      <input type="datetime-local" id="Date"><br>
+      <input type="datetime-local" id="Date" name="date"><br>
     </div>
 
     <div class="formbox">
@@ -24,7 +24,7 @@
         <li><input type="radio" id="SH" name="style" value="Skating and Hot Chocolate (hand holding optional)"><label for="SH">Skating and Hot Chocolate (hand holding optional)</label></li>
         <li><input type="radio" id="LT" name="style" value="Laser Tag"><label for="LT">Laser Tag</label></li>
         <li><input type="radio" id="TP" name="style" value="Trampoline Park"><label for="TP">Trampoline Park</label></li>
-        <li><input type="radio" id="SO" name="style" value="Other:"><label for="SO">Other: </label><input type="text" id="SOIn"></li>
+        <li><input type="radio" id="SO" name="style" value="Other:"><label for="SO">Other: </label><input type="text" id="SOIn" name="other style"></li>
       </ul>
     </div>
 
@@ -36,13 +36,13 @@
         <li><input type="radio" id="B" name="food" value="Burgers"><label for="B">Burgers</label></li>
         <li><input type="radio" id="S" name="food" value="Steakhouse"><label for="S">Steakhouse</label></li>
         <li><input type="radio" id="V" name="food" value="Hilarious Vegan Options"><label for="V">Hilarious Vegan Options</label></li>
-        <li><input type="radio" id="FO" name="food" value="Other:"><label for="FO">Other: </label><input type="text" id="FOIn"></li>
+        <li><input type="radio" id="FO" name="food" value="Other:"><label for="FO">Other: </label><input type="text" id="FOIn" name="other food"></li>
       </ul>
     </div>
 
     <div class="formbox">
       <label for="FoodRes">Do you have any allergies or food restrictions?</label><br>
-      <input type="text" id="FoodRes" placeholder="Your answer">
+      <input type="text" id="FoodRes" name="foodres" placeholder="Your answer">
     </div>
 
     <div class="formbox">
@@ -79,7 +79,7 @@
 
     <div class="formbox">
       <label for="Additions">Any additions or things I should know?</label><br>
-      <input type="text" id="Additions" placeholder="Your answer">
+      <input type="text" id="Additions" name="additions" placeholder="Your answer">
     </div>
 
     <input type="submit" id="Submit" value="Submit">
