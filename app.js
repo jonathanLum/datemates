@@ -17,10 +17,10 @@ var atob = require('atob');
 
 
 var transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'Outlook365',
   auth: {
-    user: 'loomsden345@gmail.com',
-    pass: 'j28c23Lu'
+    user: 'no-reply@datemates.fun',
+    pass: 'loomCayman345'
   }
 });
 
@@ -49,7 +49,7 @@ app.post('/invite/:email/:name',function(req,res){
     message += `${key}: ${data[key]}\n`;
   }
   var mailOptions = {
-    from: 'loomsden345@gmail.com',
+    from: 'no-reply@datemates.fun',
     to: email,
     subject: `Date Mates: Enjoy your date ${name}!`,
     text: message
