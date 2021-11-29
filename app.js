@@ -17,10 +17,9 @@ var atob = require('atob');
 
 
 var transporter = nodemailer.createTransport({
-  host: 'smtp-mail.outlook.com',
+  host: 'smtp.office365.com',
   port: '587',
   secureConnection: false,
-  secure: false,
   requireTLS: true,
   tls: {
     ciphers:'SSLv3',
@@ -29,6 +28,13 @@ var transporter = nodemailer.createTransport({
   auth: {
     user: 'no-reply@datemates.fun',
     pass: 'loomCayman345',
+  }
+});
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take our messages");
   }
 });
 
