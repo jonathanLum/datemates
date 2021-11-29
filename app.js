@@ -20,6 +20,9 @@ var transporter = nodemailer.createTransport({
   service: "Outlook365",
   host: 'smtp.office365.com',
   port: '587',
+  secureConnection: false,
+  secure: false,
+  requireTLS: true,
   tls: {
     ciphers:'SSLv3',
     rejectUnauthorized: false 
