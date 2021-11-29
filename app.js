@@ -92,6 +92,38 @@ app.get('/survey/:email/:name',function(req,res){
   res.render('survey', context);
 });
 
+app.post('/survey/:email/:name',function(req,res){
+  var email = atob(req.params.email);
+  var name = atob(req.params.name);
+  var data = req.body;
+  var message = "Survey Form Results\n";
+  for (var key in data){
+    if (data[key] == null){
+      next;
+    }
+    message += `${key}: ${data[key]}\n`;
+  }
+  var mailOptions = {
+    from: 'no-reply@datemates.fun',
+    to: email,
+    subject: `Date Mates: After date survey results!`,
+    text: message,
+    dsn: {
+      id: 'some random message specific id',
+      return: 'headers',
+      notify: ['failure', 'delay'],
+      recipient: 'no-reply@datemates.fun'
+  }
+  };
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
+  res.send(message);
+});
 
 
 app.post('/surveyaction',function(req,res){

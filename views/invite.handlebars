@@ -6,7 +6,7 @@
   <form id="Form" action={{{url}}} method="post">
     <div class="formbox">
       <label for="Name">What is your name?</label><br>
-      <input type="text" id="Name" name="Name"><br>
+      <input type="text" id="Name" name="Name" required><br>
     </div>
 
     <div class="formbox">
@@ -17,13 +17,13 @@
 
     <div class="formbox">
       <label for="Date">What time would you like to start?</label><br>
-      <input type="datetime-local" id="Date" name="Date"><br>
+      <input type="datetime-local" id="Date" name="Date" required><br>
     </div>
 
     <div class="formbox">
       <label for="Style">What style date would you like?</label>
       <ul id="Style">
-        <li><input type="radio" id="DM" name="Style" value="Dinner and a Movie"><label for="DM">Dinner and a Movie</label></li>
+        <li><input type="radio" id="DM" name="Style" value="Dinner and a Movie" required><label for="DM">Dinner and a Movie</label></li>
         <li><input type="radio" id="DA" name="Style" value="Dinner and Art Exhibit/Museum"><label for="DA">Dinner and Art Exhibit/Museum</label></li>
         <li><input type="radio" id="HO" name="Style" value="Hike or Outdoor activity"><label for="HO">Hike or Outdoor activity</label></li>
         <li><input type="radio" id="BI" name="Style" value="Beach Day and Ice Cream"><label for="BI">Beach Day and Ice Cream</label></li>
@@ -37,7 +37,7 @@
     <div class="formbox">
       <label for="Food">What kind of food do you enjoy?</label>
       <ul id="Food">
-        <li><input type="radio" id="I" name="Food" value="Indian"><label for="I">Indian</label></li>
+        <li><input type="radio" id="I" name="Food" value="Indian" required><label for="I">Indian</label></li>
         <li><input type="radio" id="T" name="Food" value="Thai Food"><label for="T">Thai Food</label></li>
         <li><input type="radio" id="B" name="Food" value="Burgers"><label for="B">Burgers</label></li>
         <li><input type="radio" id="S" name="Food" value="Steakhouse"><label for="S">Steakhouse</label></li>
@@ -48,13 +48,13 @@
 
     <div class="formbox">
       <label for="FoodRes">Do you have any allergies or food restrictions?</label><br>
-      <input type="text" id="FoodRes" name="Food Restrictions" placeholder="Your answer">
+      <input type="text" id="FoodRes" name="Food Restrictions" placeholder="Your answer" required>
     </div>
 
     <div class="formbox">
       <label for="Fanciness">On a scale of one to five, what is your preference in terms of fancy-schmanciness?</label>
       <ol id="Fanciness">
-        <li><input type="radio" id="F1" name="Fanciness" value="1"><label for="F1">Basically Pyjamas</label></li>
+        <li><input type="radio" id="F1" name="Fanciness" value="1" required><label for="F1">Basically Pyjamas</label></li>
         <li><input type="radio" id="F2" name="Fanciness" value="2"><label for="F2">Active Wear</label></li>
         <li><input type="radio" id="F3" name="Fanciness" value="3"><label for="F3">Everyday Casual</label></li>
         <li><input type="radio" id="F4" name="Fanciness" value="4"><label for="F4">Business Casual, like a Realtor</label></li>
@@ -66,7 +66,7 @@
       <label for="Excitement">Excitement Level (Optional)?</label>
       <ol id="Excitement">
         <label>I dont even want to be here</label>
-        <li><input type="radio" id="E1" name="Excitement" value="1"><label for="E1"></label></li>
+        <li><input type="radio" id="E1" name="Excitement" value="1" required><label for="E1"></label></li>
         <li><input type="radio" id="E2" name="Excitement" value="2"><label for="E2"></label></li>
         <li><input type="radio" id="E3" name="Excitement" value="3"><label for="E3"></label></li>
         <li><input type="radio" id="E4" name="Excitement" value="4"><label for="E4"></label></li>
@@ -78,7 +78,7 @@
     <div class="formbox">
       <label for="Car">{{{name}}} may not have a car, are you willing/able to drive?</label>
       <ol id="Car">
-        <li><input type="radio" id="Yes" name="Car" value="Yes"><label for="Yes">Yes</label></li>
+        <li><input type="radio" id="Yes" name="Car" value="Yes" required><label for="Yes">Yes</label></li>
         <li><input type="radio" id="No" name="Car" value="No"><label for="No">No</label></li>
       </ol>
     </div>
