@@ -83,7 +83,7 @@ app.post('/invite/:email/:name',function(req,res){
       console.log('Email sent: ' + info.response);
     }
   });
-  res.send(message);
+  res.send("myCanvas.jpg");
 });
 
 
