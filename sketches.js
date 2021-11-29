@@ -5,5 +5,6 @@ module.exports = {
             background(255, 0, 0);
             saveCanvas('myCanvas', 'jpg');
         }
+        setup();
     }
 }
