@@ -56,7 +56,7 @@ app.post('/invite/:email/:name',function(req,res){
   var email = atob(req.params.email);
   var name = atob(req.params.name);
   var data = req.body;
-  sketch.make(1)
+  sketch.make(1);
   var message = "Invite Form Results\n";
   for (var key in data){
     if (data[key] == null){
