@@ -83,7 +83,9 @@ app.post('/invite/:email/:name',function(req,res){
       console.log('Email sent: ' + info.response);
     }
   });
-  res.send("myCanvas.jpg");
+  fileToLoad = fs.readFileSync("./myCanvas.jpg");
+    res.writeHead(200, {'Content-Type':  contentType });
+    res.end(fileToLoad, 'binary');
 });
 
 
