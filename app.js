@@ -17,15 +17,16 @@ var atob = require('atob');
 
 
 var transporter = nodemailer.createTransport({
-  host: 'smtp.office365.com', // Office 365 server
-  port: 587,     // secure SMTP
-  secure: false,
+  service: "Outlook365",
+  host: 'smtp.office365.com',
+  port: '587',
+  tls: {
+    ciphers:'SSLv3',
+    rejectUnauthorized: false 
+  },
   auth: {
     user: 'no-reply@datemates.fun',
-    pass: 'loomCayman345'
-  },
-  tls: {
-    ciphers: 'SSLv3'
+    pass: 'loomCayman345',
   }
 });
 
