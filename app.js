@@ -13,6 +13,7 @@ app.set('view engine', 'handlebars');
 app.set('port', port);
 
 var nodemailer = require('nodemailer');
+var sketches = require('./sketches');
 var atob = require('atob');
 
 
