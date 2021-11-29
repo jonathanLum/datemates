@@ -6,29 +6,32 @@
   In the comments many people were saying they would either like to be asked on a date this way or ask someone this way, and I felt like it would be fun to make.</p>
 
 <div id="Formbox">
-  <form id="Form">
+  <form id="Form" onsubmit="return myFunction();">
     <label for="email">Enter name and email below to receive your date links!</label><br>
     <label for="name">Name: <input type="name" id="name" placeholder="Your name" required></label><br>
     <label for="email">Email: <input type="email" id="email" placeholder="exampleEmail@gmail.com" required></label><br>
     <label>(This site does not use a database and does NOT save this email or any personal information)</label>
-    <input type="button" value="Submit" id="Submit">
+    <input type="submit" value="Submit" id="Submit">
   </form>
   <label>Invite link: <a href="" id="InviteLink" target="_blank"></a></label><br>
   <label>Survey link: <a href="" id="SurveyLink" target="_blank"></a></label>
 
   <script>
-    document.getElementById("Submit").onclick = function() {myFunction()};
+    //document.getElementById("Submit").onclick = function() {myFunction()};
 
     function myFunction() {
-      var email = document.getElementById("email").value;
-      var codedemail = btoa(email)
-      var name = document.getElementById("name").value;
-      var codedname = btoa(name)
+      if (document.getElementById("email").value != "" && document.getElementById("name").value != ""){
+        var email = document.getElementById("email").value;
+        var codedemail = btoa(email)
+        var name = document.getElementById("name").value;
+        var codedname = btoa(name)
 
-      document.getElementById("InviteLink").href = `https://datemates.herokuapp.com/invite/${codedemail}/${codedname}`;
-      document.getElementById("InviteLink").textContent = `https://datemates.herokuapp.com/invite/${codedemail}/${codedname}`;
-      document.getElementById("SurveyLink").href = `https://datemates.herokuapp.com/survey/${codedemail}/${codedname}`;
-      document.getElementById("SurveyLink").textContent = `https://datemates.herokuapp.com/survey/${codedemail}/${codedname}`;
+        document.getElementById("InviteLink").href = `https://datemates.herokuapp.com/invite/${codedemail}/${codedname}`;
+        document.getElementById("InviteLink").textContent = `https://datemates.herokuapp.com/invite/${codedemail}/${codedname}`;
+        document.getElementById("SurveyLink").href = `https://datemates.herokuapp.com/survey/${codedemail}/${codedname}`;
+        document.getElementById("SurveyLink").textContent = `https://datemates.herokuapp.com/survey/${codedemail}/${codedname}`;
+        return false;
+      }
     }
 </script>
 </div>
