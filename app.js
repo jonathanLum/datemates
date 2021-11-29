@@ -17,8 +17,7 @@ var atob = require('atob');
 
 
 var transporter = nodemailer.createTransport({
-  service: "Outlook365",
-  host: 'smtp.office365.com',
+  host: 'smtp-mail.outlook.com',
   port: '587',
   secureConnection: false,
   secure: false,
