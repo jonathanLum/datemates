@@ -13,6 +13,7 @@ app.set('view engine', 'handlebars');
 app.set('port', port);
 
 var nodemailer = require('nodemailer');
+const sketch = require('./sketches');
 var atob = require('atob');
 
 
@@ -55,6 +56,7 @@ app.post('/invite/:email/:name',function(req,res){
   var email = atob(req.params.email);
   var name = atob(req.params.name);
   var data = req.body;
+  sketch.make(1)
   var message = "Invite Form Results\n";
   for (var key in data){
     if (data[key] == null){
