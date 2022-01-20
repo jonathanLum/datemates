@@ -13,7 +13,7 @@ app.set('view engine', 'handlebars');
 app.set('port', port);
 
 var nodemailer = require('nodemailer');
-//var sketches = require('./sketches');
+var makeimg = require('./makeimg');
 var atob = require('atob');
 
 
@@ -56,7 +56,7 @@ app.post('/invite/:email/:name',function(req,res){
   var email = atob(req.params.email);
   var name = atob(req.params.name);
   var data = req.body;
-  //sketches.sketch1();
+  var inviteImage = makeimg.create(data);
   var message = "Invite Form Results\n";
   for (var key in data){
     if (data[key] == null){
@@ -69,6 +69,12 @@ app.post('/invite/:email/:name',function(req,res){
     to: email,
     subject: `Date Mates: Enjoy your date ${name}!`,
     text: message,
+    attatchments: [
+      {
+        filename: inviteImage,
+        path: './inviteImage.png' 
+      }
+    ],
     dsn: {
       id: 'some random message specific id',
       return: 'headers',
