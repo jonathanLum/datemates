@@ -57,7 +57,7 @@ app.post('/invite/:email/:name',function(req,res){
   var email = atob(req.params.email);
   var name = atob(req.params.name);
   var data = req.body;
-  //var inviteImage = makeimg.create(name, data);
+  var inviteImage = makeimg.create(name, data);
   var message = "Invite Form Results\n";
   for (var key in data){
     if (data[key] == null){
@@ -71,8 +71,8 @@ app.post('/invite/:email/:name',function(req,res){
     subject: `Date Mates: Enjoy your date ${name}!`,
     text: message,
     attachments: [{
-      filename: "casualTemplate.jpg",
-      path: __dirname+"/imgs/casualTemplate.jpg"
+      filename: inviteImage,
+      path: __dirname+`/${inviteImage}`
     }],
     dsn: {
       id: 'some random message specific id',

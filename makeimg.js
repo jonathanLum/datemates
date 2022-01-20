@@ -24,5 +24,5 @@ module.exports = async function create(name, data) {
     image.print(font, 10, 350, `${name} invites ${name2}\nTo:`);
     // Writing image after processing
     await image.writeAsync('/casualInvite.png');
-    return "/casualInvite.png"
+    return "casualInvite.png"
 }
