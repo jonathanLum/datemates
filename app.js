@@ -13,7 +13,6 @@ app.set('view engine', 'handlebars');
 app.set('port', port);
 
 var nodemailer = require('nodemailer');
-require('./makeimg')();
 var atob = require('atob');
 
 
@@ -57,7 +56,7 @@ app.post('/invite/:email/:name', async (req,res) => {
     var email = atob(req.params.email);
     var name = atob(req.params.name);
     var data = req.body;
-    var inviteImage = await create(name, data);
+    var inviteImage = await makeImg(name, data);
     res.send(inviteImage);
     /*
     var message = "Invite Form Results\n";
@@ -160,3 +159,30 @@ app.use(function(err, req, res, next){
 app.listen(app.get('port'), function(){
   console.log('Express started on http://flip3.engr.oregonstate.edu:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
+
+async function makeImg(name, data) {
+  let name2 = "";
+  let fanciness = 0;
+  
+  // parse data to decide on text
+  for (var key in data){
+      if (data[key] == null){
+      next;
+      }
+
+      if (key == "Name"){
+          name2 = data[key];
+      } else if (key == "Fanciness"){
+          fanciness = int(data[key]);
+      }
+  }
+
+  /*// Reading image
+  const image = await Jimp.read('/imgs/casualTemplate.jpg');
+  // Defining the text font
+  const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
+  image.print(font, 10, 350, `${name} invites ${name2}\nTo:`);
+  // Writing image after processing
+  await image.writeAsync('/casualInvite.png');*/
+  return "casualInvite.png";
+}
