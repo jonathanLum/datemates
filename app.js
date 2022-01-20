@@ -163,7 +163,7 @@ app.listen(app.get('port'), function(){
 
 function makeImg(name, data) {
   return new Promise(resolve => {
-    let name2 = "";
+    /*let name2 = "";
     let fanciness = 0;
     
     // parse data to decide on text
@@ -177,19 +177,20 @@ function makeImg(name, data) {
         } else if (key == "Fanciness"){
             fanciness = int(data[key]);
         }
-    }
+    }*/
     Jimp.read('./imgs/casualTemplate.jpg')
       .then(image => {
         // Do stuff with the image.
         Jimp.loadFont(Jimp.FONT_SANS_32_BLACK)
           .then(font => {
           // load font from .fnt file
-          image.print(font, x, y, `${name} invites ${name2}\nTo:`, maxWidth); // print a message on an image with text wrapped at maxWidth
+          image.print(font, x, y, `hello`, maxWidth); // print a message on an image with text wrapped at maxWidth
           });
         return image.writeAsync('./casualInvite.png');
       })
       .catch(err => {
         // Handle an exception.
+        //return next(error);
       });
     resolve("casualInvite.png");
   });
