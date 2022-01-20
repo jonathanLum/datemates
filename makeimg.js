@@ -1,5 +1,7 @@
 const Jimp = require('jimp') ;
 
+
+
 module.exports = async function create(data) {
     // parse data to decide on text
     for (var key in data){
@@ -15,5 +17,5 @@ module.exports = async function create(data) {
     const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
     image.print(font, 10, 350, 'All copyrights @https://www.tutorialspoint.com');
     // Writing image after processing
-    await image.writeAsync('/home/jimp/textOverlay.png');
+    await image.writeAsync('/fancyInvite.png');
 }
