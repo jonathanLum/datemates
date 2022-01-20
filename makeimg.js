@@ -12,10 +12,10 @@ module.exports = async function create(data) {
     }
 
     // Reading image
-    const image = await Jimp.read('/imgs/fancy.jpg');
+    const image = await Jimp.read('/imgs/casualTemplate.jpg');
     // Defining the text font
     const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
     image.print(font, 10, 350, 'All copyrights @https://www.tutorialspoint.com');
     // Writing image after processing
-    await image.writeAsync('/fancyInvite.png');
+    await image.writeAsync('/casualInvite.png');
 }
