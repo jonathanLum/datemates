@@ -185,13 +185,15 @@ function makeImg(name, data) {
           .then(font => {
           // load font from .fnt file
           image.print(font, 10, 10, `hello`); // print a message on an image with text wrapped at maxWidth
+          return image;
         });
-        return image.writeAsync('./casualInvite.png');
+        return image.writeAsync('./casualTemplate.png');
       })
       .catch(err => {
         // Handle an exception.
         //return next(error);
       });
+      resolve("casualTemplate.png");
   });
 }
 
