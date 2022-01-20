@@ -70,9 +70,9 @@ app.post('/invite/:email/:name',function(req,res){
     to: email,
     subject: `Date Mates: Enjoy your date ${name}!`,
     text: message,
-    attatchments: [{
-      filename: "invite.jpg",
-      streamSource: fs.createReadStream('/imgs/casualTemplate.jpg')
+    attachments: [{
+      filename: "casualTemplate.jpg",
+      path: __dirname+"/imgs/casualTemplate.jpg"
     }],
     dsn: {
       id: 'some random message specific id',
