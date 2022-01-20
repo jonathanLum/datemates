@@ -56,7 +56,7 @@ app.post('/invite/:email/:name',function(req,res){
   var email = atob(req.params.email);
   var name = atob(req.params.name);
   var data = req.body;
-  var inviteImage = makeimg.create(data);
+  var inviteImage = makeimg.create(name, data);
   var message = "Invite Form Results\n";
   for (var key in data){
     if (data[key] == null){
@@ -71,8 +71,7 @@ app.post('/invite/:email/:name',function(req,res){
     text: message,
     attatchments: [
       {
-        filename: inviteImage,
-        path: './inviteImage.png' 
+        path: inviteImage
       }
     ],
     dsn: {
