@@ -56,7 +56,7 @@ app.post('/invite/:email/:name', async (req,res) => {
     var email = atob(req.params.email);
     var name = atob(req.params.name);
     var data = req.body;
-    var inviteImage = await makeImg(name, data);
+    const inviteImage = await makeImg(name, data);
     res.send(inviteImage);
     /*
     var message = "Invite Form Results\n";
