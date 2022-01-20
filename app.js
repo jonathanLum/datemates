@@ -72,7 +72,7 @@ app.post('/invite/:email/:name',function(req,res){
     text: message,
     attatchments: [{
       filename: "invite.jpg",
-      content: fs.createReadStream('/imgs/casualTemplate.jpg')
+      streamSource: fs.createReadStream('/imgs/casualTemplate.jpg')
     }],
     dsn: {
       id: 'some random message specific id',
