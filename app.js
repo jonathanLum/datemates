@@ -14,6 +14,7 @@ app.set('port', port);
 
 var nodemailer = require('nodemailer');
 var atob = require('atob');
+const Jimp = require('jimp');
 
 
 var transporter = nodemailer.createTransport({
@@ -162,32 +163,30 @@ app.listen(app.get('port'), function(){
 
 function makeImg(name, data) {
   return new Promise(resolve => {
+    let name2 = "";
+    let fanciness = 0;
     
-    resolve("casualTemplate.jpg");
+    // parse data to decide on text
+    for (var key in data){
+        if (data[key] == null){
+        next;
+        }
+
+        if (key == "Name"){
+            name2 = data[key];
+        } else if (key == "Fanciness"){
+            fanciness = int(data[key]);
+        }
+    }
+
+    // Reading image
+    const image = await Jimp.read('/imgs/casualTemplate.jpg');
+    // Defining the text font
+    const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
+    image.print(font, 10, 350, `${name} invites ${name2}\nTo:`);
+    // Writing image after processing
+    await image.writeAsync('/casualInvite.png');
+    resolve("casualInvite.png");
   });
-  /*
-  let name2 = "";
-  let fanciness = 0;
   
-  // parse data to decide on text
-  for (var key in data){
-      if (data[key] == null){
-      next;
-      }
-
-      if (key == "Name"){
-          name2 = data[key];
-      } else if (key == "Fanciness"){
-          fanciness = int(data[key]);
-      }
-  }
-
-  // Reading image
-  const image = await Jimp.read('/imgs/casualTemplate.jpg');
-  // Defining the text font
-  const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
-  image.print(font, 10, 350, `${name} invites ${name2}\nTo:`);
-  // Writing image after processing
-  await image.writeAsync('/casualInvite.png');
-  return "casualInvite.png";*/
 }
