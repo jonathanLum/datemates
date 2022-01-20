@@ -71,7 +71,7 @@ app.post('/invite/:email/:name',function(req,res){
     text: message,
     attatchments: [
       {
-        path: inviteImage
+        path: '/imgs/casualTemplate.jpg'
       }
     ],
     dsn: {
@@ -79,7 +79,7 @@ app.post('/invite/:email/:name',function(req,res){
       return: 'headers',
       notify: ['failure', 'delay'],
       recipient: 'no-reply@datemates.fun'
-  }
+    }
   };
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
