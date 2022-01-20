@@ -178,27 +178,32 @@ function makeImg(name, data) {
             fanciness = int(data[key]);
         }
     }*/
-    const font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-    const image = await Jimp.read('./imgs/casualTemplate.jpg');
-    image.print(font, 10, 10, 'message', 30);
-    await image.writeAsync('./casualInvite.png');
-    resolve("casualInvite.png");
-  });
-}
-
-/*
-Jimp.read('./imgs/casualTemplate.jpg')
+    Jimp.read('./imgs/casualTemplate.jpg')
       .then(image => {
-        // Do stuff with the image.
+        return image
+          .print(await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE), x, y, `hello`, maxWidth)
+          .writeAsync('./casualInvite.png');
+        
+       /* // Do stuff with the image.
         Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
           .then(font => {
           // load font from .fnt file
           image.print(font, x, y, `hello`, maxWidth); // print a message on an image with text wrapped at maxWidth
-          });
-        return image.writeAsync('./casualInvite.png');
+          });*/
+        
       })
       .catch(err => {
         // Handle an exception.
         //return next(error);
       });
+  });
+}
+
+/*
+
       */
+     /*const font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+    const image = await Jimp.read('./imgs/casualTemplate.jpg');
+    image.print(font, 10, 10, 'message', 30);
+    await image.writeAsync('./casualInvite.png');
+    resolve("casualInvite.png");*/
