@@ -58,8 +58,8 @@ app.post('/invite/:email/:name', async (req,res) => {
     var name = atob(req.params.name);
     var data = req.body;
     const inviteImage = await makeImg(name, data);
-    res.send(inviteImage);
-    /*
+    //res.send(inviteImage);
+    
     var message = "Invite Form Results\n";
     for (var key in data){
       if (data[key] == null){
@@ -74,7 +74,7 @@ app.post('/invite/:email/:name', async (req,res) => {
       text: message,
       attachments: [{
         filename: inviteImage,
-        path: __dirname+`/imgs/${inviteImage}`
+        path: __dirname+`/${inviteImage}`
       }],
       dsn: {
         id: 'some random message specific id',
@@ -90,7 +90,7 @@ app.post('/invite/:email/:name', async (req,res) => {
         console.log('Email sent: ' + info.response);
       }
     });
-    res.render('invitedone');*/
+    res.render('invitedone');
   } catch (error) {
     return next(error);
   }
