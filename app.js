@@ -180,17 +180,14 @@ function makeImg(name, data) {
     }*/
     Jimp.read('./imgs/casualTemplate.jpg')
       .then(image => {
-        return image
-          .print(await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE), x, y, `hello`, maxWidth)
-          .writeAsync('./casualInvite.png');
-        
-       /* // Do stuff with the image.
+        // Do stuff with the image.
         Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
           .then(font => {
           // load font from .fnt file
-          image.print(font, x, y, `hello`, maxWidth); // print a message on an image with text wrapped at maxWidth
-          });*/
-        
+          image.print(font, 10, 10, `hello`); // print a message on an image with text wrapped at maxWidth
+          return image;
+        });
+        return image.writeAsync('./casualInvite.png');
       })
       .catch(err => {
         // Handle an exception.
