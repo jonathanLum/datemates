@@ -15,6 +15,7 @@ app.set('port', port);
 var nodemailer = require('nodemailer');
 var makeimg = require('./makeimg');
 var atob = require('atob');
+var fs = require('fs');
 
 
 var transporter = nodemailer.createTransport({
@@ -70,7 +71,8 @@ app.post('/invite/:email/:name',function(req,res){
     subject: `Date Mates: Enjoy your date ${name}!`,
     text: message,
     attatchments: [{
-      path: '/imgs/casualTemplate.jpg'
+      filename: "invite.jpg",
+      content: fs.createReadStream('/imgs/casualTemplate.jpg')
     }],
     dsn: {
       id: 'some random message specific id',
