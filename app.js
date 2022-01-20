@@ -71,7 +71,7 @@ app.post('/invite/:email/:name',function(req,res){
     text: message,
     attachments: [{
       filename: inviteImage,
-      path: __dirname+`/${inviteImage}`
+      path: __dirname+`/imgs/${inviteImage}`
     }],
     dsn: {
       id: 'some random message specific id',
