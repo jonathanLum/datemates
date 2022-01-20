@@ -1,6 +1,6 @@
 const Jimp = require('jimp') ;
 
-module.exports = async function() {
+module.exports = function() {
     this.create = async function (name, data) {
         var name2 = "";
         var fanciness = 0;
