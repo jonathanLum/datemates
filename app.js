@@ -15,7 +15,6 @@ app.set('port', port);
 var nodemailer = require('nodemailer');
 var makeimg = require('./makeimg');
 var atob = require('atob');
-var fs = require('fs');
 
 
 var transporter = nodemailer.createTransport({
