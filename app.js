@@ -57,6 +57,8 @@ app.post('/invite/:email/:name',function(req,res){
   var name = atob(req.params.name);
   var data = req.body;
   var inviteImage = makeimg.create(name, data);
+  res.send(inviteImage);
+  /*
   var message = "Invite Form Results\n";
   for (var key in data){
     if (data[key] == null){
@@ -87,7 +89,7 @@ app.post('/invite/:email/:name',function(req,res){
       console.log('Email sent: ' + info.response);
     }
   });
-  res.render('invitedone');
+  res.render('invitedone');*/
 });
 
 
