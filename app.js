@@ -13,7 +13,7 @@ app.set('view engine', 'handlebars');
 app.set('port', port);
 
 var nodemailer = require('nodemailer');
-var makeimg = require('./makeimg');
+require('./makeimg')();
 var atob = require('atob');
 
 
@@ -56,7 +56,7 @@ app.post('/invite/:email/:name',function(req,res){
   var email = atob(req.params.email);
   var name = atob(req.params.name);
   var data = req.body;
-  var inviteImage = makeimg.create(name, data);
+  var inviteImage = create(name, data);
   res.send(inviteImage);
   /*
   var message = "Invite Form Results\n";

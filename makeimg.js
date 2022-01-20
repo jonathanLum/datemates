@@ -1,9 +1,9 @@
 const Jimp = require('jimp') ;
 
-module.exports = {
-    create: async function (name, data) {
-        return "casualTemplate.jpg"
-        var name2 = "";
+module.exports = function() {
+    this.create = function (name, data) {
+        return "casualTemplate.jpg";
+        /*var name2 = "";
         var fanciness = 0;
         
         // parse data to decide on text
@@ -26,6 +26,6 @@ module.exports = {
         image.print(font, 10, 350, `${name} invites ${name2}\nTo:`);
         // Writing image after processing
         await image.writeAsync('/casualInvite.png');
-        return "casualInvite.png"
+        return "casualInvite.png"*/
     }
 }
