@@ -14,7 +14,7 @@ app.set('port', port);
 
 var nodemailer = require('nodemailer');
 var atob = require('atob');
-const Jimp = require('jimp');
+var Jimp = require('jimp');
 
 
 var transporter = nodemailer.createTransport({
@@ -178,15 +178,19 @@ function makeImg(name, data) {
             fanciness = int(data[key]);
         }
     }
-
-    // Reading image
-    const image = await Jimp.read('/imgs/casualTemplate.jpg');
-    // Defining the text font
-    const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
-    image.print(font, 10, 350, `${name} invites ${name2}\nTo:`);
-    // Writing image after processing
-    await image.writeAsync('/casualInvite.png');
+    Jimp.read('./imgs/casualTemplate.jpg')
+      .then(image => {
+        // Do stuff with the image.
+        Jimp.loadFont(Jimp.FONT_SANS_32_BLACK)
+          .then(font => {
+          // load font from .fnt file
+          image.print(font, x, y, `${name} invites ${name2}\nTo:`, maxWidth); // print a message on an image with text wrapped at maxWidth
+          });
+        return image.writeAsync('./casualInvite.png');
+      })
+      .catch(err => {
+        // Handle an exception.
+      });
     resolve("casualInvite.png");
   });
-  
 }
