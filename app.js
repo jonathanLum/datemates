@@ -160,7 +160,12 @@ app.listen(app.get('port'), function(){
   console.log('Express started on http://flip3.engr.oregonstate.edu:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
 
-async function makeImg(name, data) {
+function makeImg(name, data) {
+  return new Promise(resolve => {
+    
+    resolve("casualTemplate.jpg");
+  });
+  /*
   let name2 = "";
   let fanciness = 0;
   
@@ -177,12 +182,12 @@ async function makeImg(name, data) {
       }
   }
 
-  /*// Reading image
+  // Reading image
   const image = await Jimp.read('/imgs/casualTemplate.jpg');
   // Defining the text font
   const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
   image.print(font, 10, 350, `${name} invites ${name2}\nTo:`);
   // Writing image after processing
-  await image.writeAsync('/casualInvite.png');*/
-  return "casualInvite.png";
+  await image.writeAsync('/casualInvite.png');
+  return "casualInvite.png";*/
 }
