@@ -52,11 +52,11 @@ app.get('/invite/:email/:name',function(req,res){
   res.render('invite', context);
 });
 
-app.post('/invite/:email/:name',function(req,res){
+app.post('/invite/:email/:name', async function(req,res){
   var email = atob(req.params.email);
   var name = atob(req.params.name);
   var data = req.body;
-  var inviteImage = create(name, data);
+  var inviteImage = await create(name, data);
   res.send(inviteImage);
   /*
   var message = "Invite Form Results\n";
