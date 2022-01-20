@@ -18,13 +18,13 @@ module.exports = async function() {
             }
         }
 
-        // Reading image
+        /*// Reading image
         const image = await Jimp.read('/imgs/casualTemplate.jpg');
         // Defining the text font
         const font = await Jimp.loadFont(Jimp.FONT_SANS_32_BLACK);
         image.print(font, 10, 350, `${name} invites ${name2}\nTo:`);
         // Writing image after processing
-        await image.writeAsync('/casualInvite.png');
+        await image.writeAsync('/casualInvite.png');*/
         return "casualInvite.png";
     }
 }
