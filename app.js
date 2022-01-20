@@ -52,45 +52,50 @@ app.get('/invite/:email/:name',function(req,res){
   res.render('invite', context);
 });
 
-app.post('/invite/:email/:name', async function(req,res){
-  var email = atob(req.params.email);
-  var name = atob(req.params.name);
-  var data = req.body;
-  var inviteImage = await create(name, data);
-  res.send(inviteImage);
-  /*
-  var message = "Invite Form Results\n";
-  for (var key in data){
-    if (data[key] == null){
-      next;
+app.post('/invite/:email/:name', async (req,res) => {
+  try {
+    var email = atob(req.params.email);
+    var name = atob(req.params.name);
+    var data = req.body;
+    var inviteImage = await create(name, data);
+    res.send(inviteImage);
+    /*
+    var message = "Invite Form Results\n";
+    for (var key in data){
+      if (data[key] == null){
+        next;
+      }
+      message += `${key}: ${data[key]}\n`;
     }
-    message += `${key}: ${data[key]}\n`;
+    var mailOptions = {
+      from: 'no-reply@datemates.fun',
+      to: email,
+      subject: `Date Mates: Enjoy your date ${name}!`,
+      text: message,
+      attachments: [{
+        filename: inviteImage,
+        path: __dirname+`/imgs/${inviteImage}`
+      }],
+      dsn: {
+        id: 'some random message specific id',
+        return: 'headers',
+        notify: ['failure', 'delay'],
+        recipient: 'no-reply@datemates.fun'
+      }
+    };
+    transporter.sendMail(mailOptions, function(error, info){
+      if (error) {
+        console.log(error);
+      } else {
+        console.log('Email sent: ' + info.response);
+      }
+    });
+    res.render('invitedone');*/
+  } catch (error) {
+    return next(error);
   }
-  var mailOptions = {
-    from: 'no-reply@datemates.fun',
-    to: email,
-    subject: `Date Mates: Enjoy your date ${name}!`,
-    text: message,
-    attachments: [{
-      filename: inviteImage,
-      path: __dirname+`/imgs/${inviteImage}`
-    }],
-    dsn: {
-      id: 'some random message specific id',
-      return: 'headers',
-      notify: ['failure', 'delay'],
-      recipient: 'no-reply@datemates.fun'
-    }
-  };
-  transporter.sendMail(mailOptions, function(error, info){
-    if (error) {
-      console.log(error);
-    } else {
-      console.log('Email sent: ' + info.response);
-    }
-  });
-  res.render('invitedone');*/
 });
+
 
 
 app.get('/survey/:email/:name',function(req,res){
