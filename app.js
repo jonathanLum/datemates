@@ -185,7 +185,7 @@ async function makeImg(name, data) {
     default:
       dressMsg = "An Error Ocurred.."
   }
-  let dateTime = data["Date"].split(/[-T]+/);
+  let dateTime = data["Date"].split(/-|T/);
   let dateArray = dateTime.pop();
   let addon = "";
   switch (dateArray[2][-1]) {
@@ -245,7 +245,7 @@ async function makeImg(name, data) {
   Jimp.loadFont(Jimp.FONT_SANS_128_WHITE) // Large Font
     .then(font => {
       // Print Date Activity
-      image.print(font, (width-810)/2, 360, {
+      image.print(font, (width-810)/2, 350, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
