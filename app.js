@@ -178,7 +178,10 @@ function makeImg(name, data) {
             fanciness = int(data[key]);
         }
     }*/
-    const font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+    const font = Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
+      .then(font => {
+        return font;
+      })
     Jimp.read('./imgs/casualTemplate.jpg')
       .then(image => {
         // Do stuff with the image.
