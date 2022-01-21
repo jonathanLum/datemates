@@ -1,12 +1,12 @@
 <h1>Exit Survey - Date Mates!</h1>
 
-<p>Thank you for going on a date with {{{name}}}! They had a great time. 
+<p>Thank you for going on a date with {{name}}! They had a great time. 
   In the interest of professionalism and giving dating the structure and administrative beurocracy it has always deserved,
-  {{{name}}} has requested you fill out this optional exit survey. Thank you!</p>
+  {{name}} has requested you fill out this optional exit survey. Thank you!</p>
 <div id="Formbox">
   <form id="Form" action={{{url}}} method="post">
     <div class="formbox">
-      <label for="Performance">On a scale of Awkward to Charming, how would you rate {{{name}}}'s performance?</label>
+      <label for="Performance">On a scale of Awkward to Charming, how would you rate {{name}}'s performance?</label>
       <ol id="Performance">
         <label>Awkward</label>
         <li><input type="radio" id="P1" name="performance" value="1" required><label for="P1"></label></li>
@@ -26,7 +26,7 @@
     <div class="formbox">
       <label for="Symptoms">At any point in our date did you experience the following:</label>
       <ul id="Symptoms">
-        <li><input type="checkbox" id="S1" name="symptoms" value="Nausea" required><label for="S1">Nausea</label></li>
+        <li><input type="checkbox" id="S1" name="symptoms" value="Nausea"><label for="S1">Nausea</label></li>
         <li><input type="checkbox" id="S2" name="symptoms" value="L'Espirit des l'escalier"><label for="S2">L'Espirit des l'escalier</label></li>
         <li><input type="checkbox" id="S3" name="symptoms" value="Comfort"><label for="S3">Comfort</label></li>
         <li><input type="checkbox" id="S4" name="symptoms" value="Fear of the Abyss"><label for="S4">Fear of the Abyss</label></li>
