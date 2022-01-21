@@ -168,9 +168,12 @@ async function makeImg(name, data) {
   let width = image.bitmap.width;
   let height = image.bitmap.height;
     
-  Jimp.loadFont(Jimp.FONT_SANS_128_WHITE)
+  Jimp.loadFont(Jimp.FONT_SANS_64_WHITE)
     .then(font => {
-      image.print(font, width/2, 70, `${name} invites ${name2} To:`);
+      image.print(font, 0, 80, {
+        text: `${name} invites ${name2} To:`,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+      }, 500);
       return image;
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
