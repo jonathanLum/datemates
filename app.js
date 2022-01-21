@@ -161,14 +161,11 @@ app.listen(app.get('port'), function(){
   console.log('Express started on http://flip3.engr.oregonstate.edu:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
 
-function makeImg(name, data) {
+async function makeImg(name, data) {
+  let image = await Jimp.read('./imgs/casualTemplate.jpg');
+  
   return new Promise(resolve => {
     
-    let image = Jimp.read('./imgs/casualTemplate.jpg')
-      .then(image => {
-        return image;
-      });
-
     Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
       .then(font => {
         image.print(font, 10, 10, `hello`);
