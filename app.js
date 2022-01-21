@@ -166,7 +166,7 @@ function makeImg(name, data) {
     
     let image = Jimp.read('./imgs/casualTemplate.jpg')
       .then(image => {
-        return image
+        return image;
       });
 
     Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
