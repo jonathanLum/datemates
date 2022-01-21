@@ -175,12 +175,12 @@ async function makeImg(name, data) {
         text: `${name} invites ${name2} To:`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
-      }, 600);
+      }, width);
       image.print(font, 0, 0, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-      }, 700);
+      }, width, height);
       return image;
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
