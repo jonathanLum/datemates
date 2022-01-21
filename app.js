@@ -166,6 +166,25 @@ async function makeImg(name, data) {
   let style = data["Style"];
   let fanciness = data["Fanciness"];
   let dressMsg = "A BUSINESS DRESS DATE";
+  switch (fanciness) {
+    case "1":
+      dressMsg = "A PYJAMAS DRESS DATE";
+      break;
+    case "2":
+      dressMsg = "A SPORTY DRESS DATE";
+      break;
+    case "3":
+      dressMsg = "A CASUAL DRESS DATE";
+      break;
+    case "4":
+      dressMsg = "A BUSINESS DRESS DATE";
+      break;
+    case "5":
+      dressMsg = "A FANCY DRESS DATE";
+      break;
+    default:
+      dressMsg = "An Error Ocurred..."
+  }
   let date = data["Date"];
   let time = data["Date"];
   
@@ -209,11 +228,11 @@ async function makeImg(name, data) {
   Jimp.loadFont(Jimp.FONT_SANS_128_WHITE) // Large Font
     .then(font => {
       // Print Date Activity
-      image.print(font, (width-810)/2, 332, {
+      image.print(font, (width-810)/2, 360, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-      }, 810, 540);
+      }, 810, 505);
       return image;
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
