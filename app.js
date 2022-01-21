@@ -172,18 +172,18 @@ async function makeImg(name, data) {
     
   Jimp.read('./imgs/casualTemplate.jpg')
     .then(image => {
-      image.print(fontSmall, (width-648)/2, 115, {
+      return image
+      .print(fontSmall, (width-648)/2, 115, {
         text: `${name} invites ${name2} To:`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
-      }, 648);
-      image.print(fontSmall, (width-856)/2, 360, {
+      }, 648)
+      .print(fontSmall, (width-856)/2, 360, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-      }, 856, 532);
-      
-      return image.writeAsync('./casualInvite.png');
+      }, 856, 532)
+      .writeAsync('./casualInvite.png');
     });
 
   return "casualInvite.png";
