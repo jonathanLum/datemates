@@ -189,7 +189,7 @@ async function makeImg(name, data) {
   let regex = /([0-9]+)\-([0-9]+)\-([0-9]+)T([0-9]+\:[0-9]+)/;
   let match = dateTime.match(regex);
   let addon = "";
-  /*switch (match[3].slice(-1)) {
+  switch (match[3][1]) {
     case "1":
       addon = "st";
       break;
@@ -201,7 +201,7 @@ async function makeImg(name, data) {
       break;
     default:
       addon = "th";
-  }*/
+  }
   let date = `${match[3]}${addon} ${match[2]}. ${match[1]}`;
   let time = `Time: ${match[4]}`;
   
