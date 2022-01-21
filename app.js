@@ -171,16 +171,16 @@ async function makeImg(name, data) {
     
   Jimp.loadFont(Jimp.FONT_SANS_64_WHITE)
     .then(font => {
-      image.print(font, 0, 100, {
+      image.print(font, width-648, 130, {
         text: `${name} invites ${name2} To:`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
-      }, width);
-      image.print(font, 0, 0, {
+      }, 648);
+      image.print(font, width-856, height-532, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-      }, width, height);
+      }, 856, 532);
       return image;
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
