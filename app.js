@@ -165,26 +165,27 @@ async function makeImg(name, data) {
   let name2 = data["Name"];
   let style = data["Style"];
   
-  let fontSmall = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+  let font = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
   //let fontLarge = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
   let width = image.bitmap.width;
   let height = image.bitmap.height;
     
   Jimp.read('./imgs/casualTemplate.jpg')
-    .then(image => {
-      return image
-      .print(fontSmall, (width-648)/2, 115, {
-        text: `${name} invites ${name2} To:`,
-        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-        alignmentY: Jimp.VERTICAL_ALIGN_TOP
-      }, 648)
-      .print(fontSmall, (width-856)/2, 360, {
-        text: `${style}`,
-        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-        alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-      }, 856, 532)
-      .writeAsync('./casualInvite.png');
-    });
+  .then(font => {
+    image.print(font, (width-648)/2, 115, {
+      text: `${name} invites ${name2} To:`,
+      alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+      alignmentY: Jimp.VERTICAL_ALIGN_TOP
+    }, 648);
+    image.print(font, (width-856)/2, 360, {
+      text: `${style}`,
+      alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+      alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+    }, 856, 532);
+    return image;
+  }).then(image => {
+    return image.writeAsync('./casualInvite.png');
+  });
 
   return "casualInvite.png";
 }
