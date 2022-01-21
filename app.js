@@ -181,7 +181,7 @@ function makeImg(name, data) {
     Jimp.read('./imgs/casualTemplate.jpg')
       .then(image => {
         // Do stuff with the image.
-        let font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+        const font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
         return image
           .print(font, 10, 10, `hello`) // print a message on an image with text wrapped at maxWidth
           .writeAsync('./casualTemplate.png');
