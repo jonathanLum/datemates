@@ -164,7 +164,7 @@ app.listen(app.get('port'), function(){
 async function makeImg(name, data) {
   let name2 = data["Name"];
   let style = data["Style"];
-  let fanciness = int(data["Fanciness"]);
+  //let fanciness = int(data["Fanciness"]);
   let dressMsg = "A BUSINESS DRESS DATE";
   let date = data["Date"];
   let time = data["Date"];
