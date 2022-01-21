@@ -165,7 +165,28 @@ async function makeImg(name, data) {
   let name2 = data["Name"];
   let style = data["Style"];
   let fanciness = int(data["Fanciness"]);
-  let date, time = data["Date"];
+  let dressMsg = "";
+  switch (fanciness) {
+    case 1:
+      dressMsg = "A PYJAMAS DRESS DATE";
+      break;
+    case 2:
+      dressMsg = "A SPORTY DRESS DATE";
+      break;
+    case 3:
+      dressMsg = "A CASUAL DRESS DATE";
+      break;
+    case 4:
+      dressMsg = "A BUSINESS DRESS DATE";
+      break;
+    case 5:
+      dressMsg = "A FANCY DRESS DATE";
+      break;
+    default:
+      dressMsg = "An Error Ocurred..."
+  }
+  let date = data["Date"];
+  let time = data["Date"];
   
   let image = await Jimp.read('./imgs/casualTemplate.jpg');
   let width = image.bitmap.width;
@@ -180,27 +201,7 @@ async function makeImg(name, data) {
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
       }, 650, 162);
       
-      let dressMsg = "";
       // Print Dress fanciness
-      switch (fanciness) {
-        case 1:
-          dressMsg = "A PYJAMAS DRESS DATE";
-          break;
-        case 2:
-          dressMsg = "A SPORTY DRESS DATE";
-          break;
-        case 3:
-          dressMsg = "A CASUAL DRESS DATE";
-          break;
-        case 4:
-          dressMsg = "A BUSINESS DRESS DATE";
-          break;
-        case 5:
-          dressMsg = "A FANCY DRESS DATE";
-          break;
-        default:
-          dressMsg = "An Error Ocurred..."
-      }
       image.print(font, (width-810)/2, 970, {
         text: dressMsg,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
