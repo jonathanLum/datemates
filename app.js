@@ -166,7 +166,7 @@ async function makeImg(name, data) {
   
   //return new Promise(resolve => {
     
-  return Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
+  Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
     .then(font => {
       image.print(font, 10, 10, `hello`);
       return image;
@@ -174,6 +174,7 @@ async function makeImg(name, data) {
       return image.writeAsync('./casualInvite.png');
     });
 
+  return "casualInvite.png";
       //resolve("casualInvite.png");
   //});
 }
