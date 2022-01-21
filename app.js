@@ -185,8 +185,25 @@ async function makeImg(name, data) {
     default:
       dressMsg = "An Error Ocurred.."
   }
-  let date = data["Date"];
-  let time = data["Date"];
+  let dateTime = data["Date"].split(/[-T]+/);
+  let dateArray = dateTime.pop();
+  let addon = "";
+  switch (dateArray[2][-1]) {
+    case "1":
+      addon = "st";
+      break;
+    case "2":
+      addon = "nd";
+      break;
+    case "3":
+      addon = "rd";
+      break;
+    default:
+      addon = "th";
+  }
+  let date = `${dateArray[2]}${addon} ${dateArray[1]}. ${dateArray[0]}`;
+  let time = `Time: ${dateTime[-1]}`;
+  
   
   let image = await Jimp.read('./imgs/casualTemplate.jpg');
   let width = image.bitmap.width;
@@ -231,7 +248,7 @@ async function makeImg(name, data) {
       image.print(font, (width-810)/2, 360, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-        alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+        alignmentY: Jimp.VERTICAL_ALIGN_TOP
       }, 810, 505);
       return image;
     }).then(image => {
