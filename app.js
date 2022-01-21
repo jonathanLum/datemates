@@ -58,7 +58,7 @@ app.post('/invite/:email/:name', async (req,res) => {
     var name = atob(req.params.name);
     var data = req.body;
     const inviteImage = await makeImg(name, data);
-    res.send(inviteImage);
+    //res.send(inviteImage);
     
     var message = "Invite Form Results\n";
     for (var key in data){
@@ -165,10 +165,12 @@ async function makeImg(name, data) {
   let name2 = data["Name"];
   
   let image = await Jimp.read('./imgs/casualTemplate.jpg');
+  let width = image.bitmap.width;
+  let height = image.bitmap.height;
     
-  Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
+  Jimp.loadFont(Jimp.FONT_SANS_128_WHITE)
     .then(font => {
-      image.print(font, 10, 10, `${name} invites ${name2} To:`);
+      image.print(font, width/2, 70, `${name} invites ${name2} To:`);
       return image;
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
@@ -176,29 +178,3 @@ async function makeImg(name, data) {
 
   return "casualInvite.png";
 }
-
-    /*
-    const font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-    const image = await Jimp.read('./imgs/casualTemplate.jpg');
-    image.print(font, 10, 10, 'message', 30);
-    await image.writeAsync('./casualInvite.png');
-    resolve("casualInvite.png");
-    */
-   /*
-   const font = Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
-      .then(font => {
-        return font;
-      })
-    Jimp.read('./imgs/casualTemplate.jpg')
-      .then(image => {
-        // Do stuff with the image.
-        return image
-          .print(font, 10, 10, `hello`)
-          .writeAsync('./casualInvite.png');
-      })
-      .catch(err => {
-        // Handle an exception.
-        //return next(error);
-      });
-      resolve("casualInvite.png");
-      */
