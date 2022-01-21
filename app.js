@@ -165,50 +165,17 @@ async function makeImg(name, data) {
   let name2 = data["Name"];
   let style = data["Style"];
   let fanciness = data["Fanciness"];
-  let dressMsg = "A BUSINESS DRESS DATE";
-  switch (fanciness) {
-    case "1":
-      dressMsg = "A PYJAMAS DRESS DATE";
-      break;
-    case "2":
-      dressMsg = "A SPORTY DRESS DATE";
-      break;
-    case "3":
-      dressMsg = "A CASUAL DRESS DATE";
-      break;
-    case "4":
-      dressMsg = "A BUSINESS DRESS DATE";
-      break;
-    case "5":
-      dressMsg = "A FANCY DRESS DATE";
-      break;
-    default:
-      dressMsg = "An Error Ocurred.."
-  }
+  let dressMsg = dress(fanciness);
   let dateTime = data["Date"];
   let regex = /([0-9]+)\-([0-9]+)\-([0-9]+)T([0-9]+\:[0-9]+)/;
   let match = dateTime.match(regex);
-  let addon = "";
-  switch (match[3][1]) {
-    case "1":
-      addon = "st";
-      break;
-    case "2":
-      addon = "nd";
-      break;
-    case "3":
-      addon = "rd";
-      break;
-    default:
-      addon = "th";
-  }
-  let date = `${match[3]}${addon} ${match[2]}. ${match[1]}`;
+  let ordinal = getOrdinal(match[3][1]);
+  let month = getMonth(match[2]);
+  let date = `${match[3]}${ordinal} ${month} ${match[1]}`;
   let time = `Time: ${match[4]}`;
-  
   
   let image = await Jimp.read('./imgs/casualTemplate.jpg');
   let width = image.bitmap.width;
-  let height = image.bitmap.height;
     
   Jimp.loadFont(Jimp.FONT_SANS_64_WHITE) // Small Font
     .then(font => {
@@ -259,25 +226,63 @@ async function makeImg(name, data) {
   return "casualInvite.png";
 }
 
-/*
-switch (fanciness) {
-    case 1:
-      dressMsg = "A PYJAMAS DRESS DATE";
-      break;
-    case 2:
-      dressMsg = "A SPORTY DRESS DATE";
-      break;
-    case 3:
-      dressMsg = "A CASUAL DRESS DATE";
-      break;
-    case 4:
-      dressMsg = "A BUSINESS DRESS DATE";
-      break;
-    case 5:
-      dressMsg = "A FANCY DRESS DATE";
-      break;
+function dress (fanciness) {
+  switch (fanciness) {
+    case "1":
+      return "A PYJAMAS DRESS DATE";
+    case "2":
+      return "A SPORTY DRESS DATE";
+    case "3":
+      return "A CASUAL DRESS DATE";
+    case "4":
+      return "A BUSINESS DRESS DATE";
+    case "5":
+      return "A FANCY DRESS DATE";
     default:
-      dressMsg = "An Error Ocurred..."
+      return "An Error Ocurred.."
   }
-    */
+}
 
+function getOrdinal (day) {
+  switch (day) {
+    case "1":
+      return "st";
+    case "2":
+      return "nd";
+    case "3":
+      return "rd";
+    default:
+      return "th";
+  }
+}
+
+function getMonth (month) {
+  switch (month) {
+    case "01":
+      return "Jan.";
+    case "02":
+      return "Feb.";
+    case "03":
+      return "Mar.";
+    case "04":
+      return "Apr.";
+    case "05":
+      return "May";
+    case "06":
+      return "Jun.";
+    case "07":
+      return "Jul.";
+    case "08":
+      return "Aug.";
+    case "09":
+      return "Sept.";
+    case "10":
+      return "Oct.";
+    case "11":
+      return "Nov.";
+    case "12":
+      return "Dec.";
+    default:
+      return "Error";
+  }
+}
