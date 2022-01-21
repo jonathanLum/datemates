@@ -166,7 +166,7 @@ async function makeImg(name, data) {
   let style = data["Style"];
   
   let fontSmall = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
-  let fontLarge = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
+  //let fontLarge = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
   let width = image.bitmap.width;
   let height = image.bitmap.height;
     
@@ -177,7 +177,7 @@ async function makeImg(name, data) {
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
       }, 648);
-      image.print(fontLarge, (width-856)/2, 360, {
+      image.print(fontSmall, (width-856)/2, 360, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
