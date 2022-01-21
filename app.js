@@ -164,27 +164,74 @@ app.listen(app.get('port'), function(){
 async function makeImg(name, data) {
   let name2 = data["Name"];
   let style = data["Style"];
+  let fanciness = int(data["Fanciness"]);
+  let date, time = data["Date"];
   
   let image = await Jimp.read('./imgs/casualTemplate.jpg');
   let width = image.bitmap.width;
   let height = image.bitmap.height;
     
-  Jimp.loadFont(Jimp.FONT_SANS_64_WHITE)
+  Jimp.loadFont(Jimp.FONT_SANS_64_WHITE) // Small Font
     .then(font => {
-      image.print(font, (width-648)/2, 115, {
+      // Print Greeting
+      image.print(font, (width-650)/2, 162, {
         text: `${name} invites ${name2} To:`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
-      }, 648);
+      }, 650, 162);
+      
+      let dressMsg = "";
+      // Print Dress fanciness
+      switch (fanciness) {
+        case 1:
+          dressMsg = "A PYJAMAS DRESS DATE";
+          break;
+        case 2:
+          dressMsg = "A SPORTY DRESS DATE";
+          break;
+        case 3:
+          dressMsg = "A CASUAL DRESS DATE";
+          break;
+        case 4:
+          dressMsg = "A BUSINESS DRESS DATE";
+          break;
+        case 5:
+          dressMsg = "A FANCY DRESS DATE";
+          break;
+        default:
+          dressMsg = "An Error Ocurred..."
+      }
+      image.print(font, (width-810)/2, 970, {
+        text: dressMsg,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+        alignmentY: Jimp.VERTICAL_ALIGN_TOP
+      }, 810, 66);
+
+      // Print date of the date
+      image.print(font, (width-810)/2, 1080, {
+        text: `${date}`,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+        alignmentY: Jimp.VERTICAL_ALIGN_TOP
+      }, 810, 66);
+
+      // Print time of the date
+      image.print(font, (width-810)/2, 1187, {
+        text: `${time}`,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+        alignmentY: Jimp.VERTICAL_ALIGN_TOP
+      }, 810, 66);
+
       return image;
     });
-  Jimp.loadFont(Jimp.FONT_SANS_128_WHITE)
+
+  Jimp.loadFont(Jimp.FONT_SANS_128_WHITE) // Large Font
     .then(font => {
-      image.print(font, (width-856)/2, 360, {
+      // Print Date Activity
+      image.print(font, (width-810)/2, 332, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-      }, 856, 532);
+      }, 810, 540);
       return image;
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
