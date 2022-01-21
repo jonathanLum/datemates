@@ -43,7 +43,7 @@ transporter.verify(function (error, success) {
 app.get('/',function(req,res){
   var context = {};
   context.htmlTest = '<a href="www.google.com"></a>';
-  res.render('home');
+  res.render('home', context);
 });
 
 app.get('/invite/:email/:name',function(req,res){
