@@ -165,7 +165,32 @@ async function makeImg(name, data) {
   let name2 = data["Name"];
   let style = data["Style"];
   
-  let image = await Jimp.read('./imgs/casualTemplate.jpg');
+  let fontSmall = await Jimp.loadFont(Jimp.FONT_SANS_64_WHITE);
+  let fontLarge = await Jimp.loadFont(Jimp.FONT_SANS_128_WHITE);
+  let width = image.bitmap.width;
+  let height = image.bitmap.height;
+    
+  Jimp.read('./imgs/casualTemplate.jpg')
+    .then(image => {
+      image.print(fontSmall, (width-648)/2, 115, {
+        text: `${name} invites ${name2} To:`,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+        alignmentY: Jimp.VERTICAL_ALIGN_TOP
+      }, 648);
+      image.print(fontLarge, (width-856)/2, 360, {
+        text: `${style}`,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+        alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+      }, 856, 532);
+      
+      return image.writeAsync('./casualInvite.png');
+    });
+
+  return "casualInvite.png";
+}
+
+/*
+let image = await Jimp.read('./imgs/casualTemplate.jpg');
   let width = image.bitmap.width;
   let height = image.bitmap.height;
     
@@ -185,6 +210,4 @@ async function makeImg(name, data) {
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
     });
-
-  return "casualInvite.png";
-}
+    */
