@@ -46,6 +46,7 @@ app.get('/',function(req,res){
 
 app.get('/invite/:email/:name',function(req,res){
   var context = {};
+  context.title = " - Invite";
   context.url = `/invite/${req.params.email}/${req.params.name}`;
   context.email = atob(req.params.email);
   context.name = atob(req.params.name);
@@ -100,6 +101,7 @@ app.post('/invite/:email/:name', async (req,res) => {
 
 app.get('/survey/:email/:name',function(req,res){
   var context = {};
+  context.title = " - Survey";
   context.url = `/survey/${req.params.email}/${req.params.name}`;
   context.email = atob(req.params.email);
   context.name = atob(req.params.name);
