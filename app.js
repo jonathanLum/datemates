@@ -165,26 +165,7 @@ async function makeImg(name, data) {
   let name2 = data["Name"];
   let style = data["Style"];
   let fanciness = int(data["Fanciness"]);
-  let dressMsg = "";
-  switch (fanciness) {
-    case 1:
-      dressMsg = "A PYJAMAS DRESS DATE";
-      break;
-    case 2:
-      dressMsg = "A SPORTY DRESS DATE";
-      break;
-    case 3:
-      dressMsg = "A CASUAL DRESS DATE";
-      break;
-    case 4:
-      dressMsg = "A BUSINESS DRESS DATE";
-      break;
-    case 5:
-      dressMsg = "A FANCY DRESS DATE";
-      break;
-    default:
-      dressMsg = "An Error Ocurred..."
-  }
+  let dressMsg = "A BUSINESS DRESS DATE";
   let date = data["Date"];
   let time = data["Date"];
   
@@ -242,24 +223,24 @@ async function makeImg(name, data) {
 }
 
 /*
-let image = await Jimp.read('./imgs/casualTemplate.jpg');
-  let width = image.bitmap.width;
-  let height = image.bitmap.height;
-    
-  Jimp.loadFont(Jimp.FONT_SANS_64_WHITE)
-    .then(font => {
-      image.print(font, (width-648)/2, 115, {
-        text: `${name} invites ${name2} To:`,
-        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-        alignmentY: Jimp.VERTICAL_ALIGN_TOP
-      }, 648);
-      image.print(font, (width-856)/2, 360, {
-        text: `${style}`,
-        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-        alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-      }, 856, 532);
-      return image;
-    }).then(image => {
-      return image.writeAsync('./casualInvite.png');
-    });
+switch (fanciness) {
+    case 1:
+      dressMsg = "A PYJAMAS DRESS DATE";
+      break;
+    case 2:
+      dressMsg = "A SPORTY DRESS DATE";
+      break;
+    case 3:
+      dressMsg = "A CASUAL DRESS DATE";
+      break;
+    case 4:
+      dressMsg = "A BUSINESS DRESS DATE";
+      break;
+    case 5:
+      dressMsg = "A FANCY DRESS DATE";
+      break;
+    default:
+      dressMsg = "An Error Ocurred..."
+  }
     */
+
