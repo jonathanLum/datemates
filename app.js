@@ -167,15 +167,15 @@ function makeImg(name, data) {
     let image = Jimp.read('./imgs/casualTemplate.jpg')
       .then(image => {
         return image
-      })
+      });
 
     Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
       .then(font => {
-        image.print(font, 10, 10, `hello`)
-        return image
+        image.print(font, 10, 10, `hello`);
+        return image;
       }).then(image => {
         return image.writeAsync('./casualInvite.png');
-      })
+      });
 
       resolve("casualInvite.png");
   });
