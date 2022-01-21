@@ -59,7 +59,7 @@ app.post('/invite/:email/:name', async (req,res) => {
     var data = req.body;
     const inviteImage = await makeImg(name, data);
     res.send(inviteImage);
-    /*
+    
     var message = "Invite Form Results\n";
     for (var key in data){
       if (data[key] == null){
@@ -90,7 +90,7 @@ app.post('/invite/:email/:name', async (req,res) => {
         console.log('Email sent: ' + info.response);
       }
     });
-    res.render('invitedone');*/
+    res.render('invitedone');
   } catch (error) {
     return next(error);
   }
@@ -162,17 +162,19 @@ app.listen(app.get('port'), function(){
 });
 
 async function makeImg(name, data) {
+  let name2 = data["Name"];
+  
   let image = await Jimp.read('./imgs/casualTemplate.jpg');
     
-  return Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
+  Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
     .then(font => {
-      image.print(font, 10, 10, `hello`);
+      image.print(font, 10, 10, `${name} invites ${name2} To:`);
       return image;
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
     });
 
-  //return "casualInvite.png";
+  return "casualInvite.png";
 }
 
     /*
