@@ -183,7 +183,7 @@ async function makeImg(name, data) {
       dressMsg = "A FANCY DRESS DATE";
       break;
     default:
-      dressMsg = "An Error Ocurred..."
+      dressMsg = "An Error Ocurred.."
   }
   let date = data["Date"];
   let time = data["Date"];
