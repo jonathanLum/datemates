@@ -171,12 +171,12 @@ async function makeImg(name, data) {
     
   Jimp.loadFont(Jimp.FONT_SANS_64_WHITE)
     .then(font => {
-      image.print(font, width-648, 130, {
+      image.print(font, (width-648)/2, 115, {
         text: `${name} invites ${name2} To:`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
       }, 648);
-      image.print(font, width-856, height-532, {
+      image.print(font, (width-856)/2, 360, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
