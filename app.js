@@ -164,18 +164,18 @@ app.listen(app.get('port'), function(){
 async function makeImg(name, data) {
   let image = await Jimp.read('./imgs/casualTemplate.jpg');
   
-  return new Promise(resolve => {
+  //return new Promise(resolve => {
     
-    Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
-      .then(font => {
-        image.print(font, 10, 10, `hello`);
-        return image;
-      }).then(image => {
-        return image.writeAsync('./casualInvite.png');
-      });
+  return Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
+    .then(font => {
+      image.print(font, 10, 10, `hello`);
+      return image;
+    }).then(image => {
+      return image.writeAsync('./casualInvite.png');
+    });
 
-      resolve("casualInvite.png");
-  });
+      //resolve("casualInvite.png");
+  //});
 }
 
     /*
