@@ -163,46 +163,46 @@ app.listen(app.get('port'), function(){
 
 function makeImg(name, data) {
   return new Promise(resolve => {
-    /*let name2 = "";
-    let fanciness = 0;
     
-    // parse data to decide on text
-    for (var key in data){
-        if (data[key] == null){
-        next;
-        }
+    let image = Jimp.read('./imgs/casualTemplate.jpg')
+      .then(image => {
+        return image
+      })
 
-        if (key == "Name"){
-            name2 = data[key];
-        } else if (key == "Fanciness"){
-            fanciness = int(data[key]);
-        }
-    }*/
-    const font = Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
+    Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
+      .then(font => {
+        image.print(font, 10, 10, `hello`)
+        return image
+      }).then(image => {
+        return image.writeAsync('./casualInvite.png');
+      })
+
+      resolve("casualInvite.png");
+  });
+}
+
+    /*
+    const font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
+    const image = await Jimp.read('./imgs/casualTemplate.jpg');
+    image.print(font, 10, 10, 'message', 30);
+    await image.writeAsync('./casualInvite.png');
+    resolve("casualInvite.png");
+    */
+   /*
+   const font = Jimp.loadFont(Jimp.FONT_SANS_32_WHITE)
       .then(font => {
         return font;
       })
     Jimp.read('./imgs/casualTemplate.jpg')
       .then(image => {
         // Do stuff with the image.
-        
         return image
-          .print(font, 10, 10, `hello`) // print a message on an image with text wrapped at maxWidth
-          .writeAsync('./casualTemplate.png');
+          .print(font, 10, 10, `hello`)
+          .writeAsync('./casualInvite.png');
       })
       .catch(err => {
         // Handle an exception.
         //return next(error);
       });
-      resolve("casualTemplate.png");
-  });
-}
-
-/*
-
+      resolve("casualInvite.png");
       */
-     /*const font = await Jimp.loadFont(Jimp.FONT_SANS_32_WHITE);
-    const image = await Jimp.read('./imgs/casualTemplate.jpg');
-    image.print(font, 10, 10, 'message', 30);
-    await image.writeAsync('./casualInvite.png');
-    resolve("casualInvite.png");*/
