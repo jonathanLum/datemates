@@ -163,6 +163,7 @@ app.listen(app.get('port'), function(){
 
 async function makeImg(name, data) {
   let name2 = data["Name"];
+  let style = data["Style"];
   
   let image = await Jimp.read('./imgs/casualTemplate.jpg');
   let width = image.bitmap.width;
@@ -170,10 +171,16 @@ async function makeImg(name, data) {
     
   Jimp.loadFont(Jimp.FONT_SANS_64_WHITE)
     .then(font => {
-      image.print(font, 0, 80, {
+      image.print(font, 0, 100, {
         text: `${name} invites ${name2} To:`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-      }, 500);
+        alignmentY: Jimp.VERTICAL_ALIGN_TOP
+      }, 600);
+      image.print(font, 0, 0, {
+        text: `${style}`,
+        alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+        alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+      }, 700);
       return image;
     }).then(image => {
       return image.writeAsync('./casualInvite.png');
