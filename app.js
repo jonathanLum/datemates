@@ -246,7 +246,7 @@ async function makeImg(name, data) {
   Jimp.loadFont(Jimp.FONT_SANS_128_WHITE) // Large Font
     .then(font => {
       // Print Date Activity
-      image.print(font, (width-810)/2, 350, {
+      image.print(font, (width-810)/2, 340, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
