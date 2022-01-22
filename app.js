@@ -42,12 +42,14 @@ transporter.verify(function (error, success) {
 
 app.get('/',function(req,res){
   var context = {};
+  context.header = "Welcome to Date Mates!";
   res.render('home', context);
 });
 
 app.get('/invite/:email/:name',function(req,res){
   var context = {};
   context.title = " - Invite";
+  context.header = "Date Invite - Date Mates!";
   context.url = `/invite/${req.params.email}/${req.params.name}`;
   context.email = atob(req.params.email);
   context.name = atob(req.params.name);
@@ -92,7 +94,7 @@ app.post('/invite/:email/:name', async (req,res) => {
         console.log('Email sent: ' + info.response);
       }
     });
-    res.render('invitedone');
+    res.render('invitedone', {header : "Date Invite - Date Mates!"});
   } catch (error) {
     return next(error);
   }
@@ -103,6 +105,7 @@ app.post('/invite/:email/:name', async (req,res) => {
 app.get('/survey/:email/:name',function(req,res){
   var context = {};
   context.title = " - Survey";
+  context.header = "Exit Survey - Date Mates!";
   context.url = `/survey/${req.params.email}/${req.params.name}`;
   context.email = atob(req.params.email);
   context.name = atob(req.params.name);
