@@ -186,12 +186,12 @@ async function makeImg(name, data) {
   let filename = "";
   if(fanciness <= 3){
     image = await Jimp.read('./imgs/casualTemplate.png');
-    filename = "casualTemplate.png";
+    filename = "Casual";
     smallFont = Jimp.FONT_SANS_64_WHITE;
     largeFont = Jimp.FONT_SANS_128_WHITE;
   }else if(fanciness > 3){
     image = await Jimp.read('./imgs/fancyTemplate.png');
-    filename = "fancyTemplate.png";
+    filename = "Fancy";
     smallFont = Jimp.FONT_SANS_64_BLACK;
     largeFont = Jimp.FONT_SANS_128_BLACK;
   }
@@ -240,10 +240,10 @@ async function makeImg(name, data) {
       }, 810, 505);
       return image;
     }).then(image => {
-      return image.writeAsync(`./${filename}`);
+      return image.writeAsync(`./a${filename}Invite.png`);
   });
 
-  return filename;
+  return `a${filename}Invite.png`;
 }
 
 function dress (fanciness) {
