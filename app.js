@@ -180,7 +180,15 @@ async function makeImg(name, data) {
   let date = `${match[3]}${ordinal} ${month} ${match[1]}`;
   let time = `Time: ${match[4]}`;
   
-  let image = await Jimp.read('./imgs/casualTemplate.jpg');
+  let image;
+  let filename = "";
+  if(fanciness <= 3){
+    image = await Jimp.read('./imgs/casualTemplate.png');
+    filename = "casualTemplate.png";
+  }else if(fanciness > 3){
+    image = await Jimp.read('./imgs/fancyTemplate.png');
+    filename = "fancyTemplate.png";
+  }
   let width = image.bitmap.width;
     
   Jimp.loadFont(Jimp.FONT_SANS_64_WHITE) // Small Font
@@ -226,10 +234,10 @@ async function makeImg(name, data) {
       }, 810, 505);
       return image;
     }).then(image => {
-      return image.writeAsync('./casualInvite.png');
+      return image.writeAsync(`./${filename}`);
   });
 
-  return "casualInvite.png";
+  return filename;
 }
 
 function dress (fanciness) {
