@@ -180,18 +180,24 @@ async function makeImg(name, data) {
   let date = `${match[3]}${ordinal} ${month} ${match[1]}`;
   let time = `Time: ${match[4]}`;
   
+  let smallFont;
+  let largeFont;
   let image;
   let filename = "";
   if(fanciness <= 3){
     image = await Jimp.read('./imgs/casualTemplate.png');
     filename = "casualTemplate.png";
+    smallFont = Jimp.FONT_SANS_64_WHITE;
+    largeFont = Jimp.FONT_SANS_128_WHITE;
   }else if(fanciness > 3){
     image = await Jimp.read('./imgs/fancyTemplate.png');
     filename = "fancyTemplate.png";
+    smallFont = Jimp.FONT_SANS_64_BLACK;
+    largeFont = Jimp.FONT_SANS_128_BLACK;
   }
+
   let width = image.bitmap.width;
-    
-  Jimp.loadFont(Jimp.FONT_SANS_64_WHITE) // Small Font
+  Jimp.loadFont(smallFont) // Small Font
     .then(font => {
       // Print Greeting
       image.print(font, (width-650)/2, 162, {
@@ -224,7 +230,7 @@ async function makeImg(name, data) {
       return image;
     });
 
-  Jimp.loadFont(Jimp.FONT_SANS_128_WHITE) // Large Font
+  Jimp.loadFont(largeFont) // Large Font
     .then(font => {
       // Print Date Activity
       image.print(font, (width-810)/2, 340, {
