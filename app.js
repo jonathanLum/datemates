@@ -164,7 +164,7 @@ app.use(function(err, req, res, next){
 });
 
 app.listen(app.get('port'), function(){
-  console.log('Express started on http://flip3.engr.oregonstate.edu:' + app.get('port') + '; press Ctrl-C to terminate.');
+  console.log('Express started on http://datemates.herokuapp.com:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
 
 async function makeImg(name, data) {
@@ -240,7 +240,7 @@ async function makeImg(name, data) {
       }, 810, 505);
       return image;
     }).then(image => {
-      return image.writeAsync(`./a${filename}Invite.png`);
+      return await image.writeAsync(`./a${filename}Invite.png`);
   });
 
   return `a${filename}Invite.png`;
