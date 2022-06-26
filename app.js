@@ -95,7 +95,7 @@ app.post('/invite/:email/:name', async (req,res) => {
         console.log('Email sent: ' + info.response);
       }
     });
-    fs.unlink(inviteImage);
+    //fs.unlink(inviteImage);
     res.render('invitedone', {headtext : "Date Invite - Date Mates!"});
   } catch (error) {
     return next(error);
