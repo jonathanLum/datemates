@@ -64,7 +64,7 @@ app.post('/invite/:email/:name', async (req,res) => {
     var data = req.body;
     const inviteImage = await makeImg(name, data);
     //res.send(inviteImage);
-    let match = inviteImage.match(/(.+?)-/)
+    let match = inviteImage.match(/.+?(?=-)/)
     
     var message = "Invite Form Results\n";
     for (var key in data){
