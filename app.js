@@ -79,7 +79,7 @@ app.post('/invite/:email/:name', async (req,res) => {
       subject: `Date Mates: Enjoy your date ${name}!`,
       text: message,
       attachments: [{
-        filename: match[0],
+        filename: `${match[0]}.png`,
         path: __dirname+`/${inviteImage}`
       }],
       dsn: {
