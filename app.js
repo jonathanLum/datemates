@@ -102,7 +102,7 @@ app.post('/invite/:email/:name', async (req,res) => {
       });
     });
     
-    res.render('invitedone', {headtext : "Date Invite - Date Mates!"});
+    res.render('formDone', {headtext : "Date Invite - Date Mates!"});
   } catch (error) {
     return next(error);
   }
@@ -150,7 +150,7 @@ app.post('/survey/:email/:name',function(req,res){
       console.log('Email sent: ' + info.response);
     }
   });
-  res.send(message);
+  res.render('formDone', {headtext : "Exit Survey - Date Mates!"});
 });
 
 
