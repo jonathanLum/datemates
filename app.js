@@ -15,6 +15,7 @@ app.set('port', port);
 var nodemailer = require('nodemailer');
 var atob = require('atob');
 var Jimp = require('jimp');
+var fs = require('fs');
 
 
 var transporter = nodemailer.createTransport({
@@ -94,6 +95,7 @@ app.post('/invite/:email/:name', async (req,res) => {
         console.log('Email sent: ' + info.response);
       }
     });
+    fs.unlink(inviteImage);
     res.render('invitedone', {headtext : "Date Invite - Date Mates!"});
   } catch (error) {
     return next(error);
@@ -239,10 +241,9 @@ async function makeImg(name, data) {
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
       }, 810, 505);
       return image;
-    }).then(image => {
-      return await image.writeAsync(`./a${filename}Invite.png`);
-  });
+    });
 
+  await image.writeAsync(`./a${filename}Invite.png`);
   return `a${filename}Invite.png`;
 }
 
