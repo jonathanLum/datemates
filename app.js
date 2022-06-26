@@ -242,9 +242,10 @@ async function makeImg(name, data) {
       }, 810, 505);
       return image;
     });
-
-  await image.writeAsync(`./a${filename}Invite.png`);
-  return `a${filename}Invite.png`;
+  
+  let fullFile = `a${filename}Invite-${Date.now()}.png`;
+  await image.writeAsync(`./${fullFile}`);
+  return fullFile;
 }
 
 function dress (fanciness) {
