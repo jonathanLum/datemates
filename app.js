@@ -95,7 +95,11 @@ app.post('/invite/:email/:name', async (req,res) => {
         console.log('Email sent: ' + info.response);
       }
     });
-    //fs.unlink(inviteImage);
+    fs.unlink(inviteImage, function (err) {
+      if (err) throw err;
+      // if no error, file has been deleted successfully
+      console.log('File deleted!');
+    });
     res.render('invitedone', {headtext : "Date Invite - Date Mates!"});
   } catch (error) {
     return next(error);
