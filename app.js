@@ -64,6 +64,7 @@ app.post('/invite/:email/:name', async (req,res) => {
     var data = req.body;
     const inviteImage = await makeImg(name, data);
     //res.send(inviteImage);
+    let match = inviteImage.match(/(.+?)-/)
     
     var message = "Invite Form Results\n";
     for (var key in data){
@@ -78,7 +79,7 @@ app.post('/invite/:email/:name', async (req,res) => {
       subject: `Date Mates: Enjoy your date ${name}!`,
       text: message,
       attachments: [{
-        filename: inviteImage.match(/(.+?)-/),
+        filename: match[0],
         path: __dirname+`/${inviteImage}`
       }],
       dsn: {
