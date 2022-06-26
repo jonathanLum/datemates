@@ -199,7 +199,7 @@ async function makeImg(name, data) {
   }
 
   let width = image.bitmap.width;
-  Jimp.loadFont(smallFont) // Small Font
+  await Jimp.loadFont(smallFont) // Small Font
     .then(font => {
       // Print Greeting
       image.print(font, (width-650)/2, 162, {
@@ -232,7 +232,7 @@ async function makeImg(name, data) {
       return image;
     });
 
-  Jimp.loadFont(largeFont) // Large Font
+  await Jimp.loadFont(largeFont) // Large Font
     .then(font => {
       // Print Date Activity
       image.print(font, (width-810)/2, 340, {
