@@ -78,7 +78,7 @@ app.post('/invite/:email/:name', async (req,res) => {
       subject: `Date Mates: Enjoy your date ${name}!`,
       text: message,
       attachments: [{
-        filename: inviteImage,
+        filename: inviteImage.match(/(.+?)-/),
         path: __dirname+`/${inviteImage}`
       }],
       dsn: {
