@@ -29,7 +29,7 @@ var transporter = nodemailer.createTransport({
   },
   auth: {
     user: 'no-reply@datemates.fun',
-    pass: 'loomCayman345',
+    pass: process.env.TRANSPORTERPASS,
   }
 });
 transporter.verify(function (error, success) {
