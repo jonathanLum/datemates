@@ -151,8 +151,8 @@ app.post('/survey/:email/:name',function(req,res){
         console.log('Email sent: ' + info.response);
       }
     });
-    //res.render('formDone', {headtext : "Exit Survey - Date Mates!"});
-    res.send(message);
+    res.render('formDone', {headtext : "Exit Survey - Date Mates!"});
+    //res.send(message);
   } catch (error) {
     return next(error);
   }
