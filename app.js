@@ -159,11 +159,6 @@ app.post('/survey/:email/:name',function(req,res){
 });
 
 
-app.post('/surveyaction',function(req,res){
-  res.send(req.body)
-});
-
-
 app.use(function(req,res){
   res.status(404);
   res.render('404');
