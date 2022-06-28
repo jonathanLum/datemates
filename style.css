@@ -4,23 +4,30 @@
     width: 100%;
 }
 
+.contentarea {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px 0 3rem 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff;
+    border-bottom: 2px solid #dadce0;
+}
+
+.logo {
+    height: 100px;
+    vertical-align: middle;
+}
+
 body {
     background-color: #edebf2;
     font-family: Roboto,RobotoDraft,Helvetica,Arial,sans-serif;
     font-size: 1em;
     margin: 0;
-}
-
-.logo {
-    display: block;
-    margin: auto;
-    width: 50%;
-}
-
-.contentarea {
-    width: 600px;
-    margin: 0 auto;
-    padding: 20px 0 3rem 0;
 }
 
 form {
