@@ -1,5 +1,8 @@
 
-<p>You have agreed to go on a date with {{name}}! Congratulations! They promise a good time with your preferences in mind.</p>
+<div class="formbox">		
+  <h2>{{headtext}}</h2>
+  <p>You have agreed to go on a date with {{name}}! Congratulations! They promise a good time with your preferences in mind.</p>
+</div>
 
 <div id="Formbox">
   <form id="Form" action={{url}} method="post">
@@ -76,10 +79,10 @@
 
     <div class="formbox">
       <label for="Car">{{name}} may not have a car, are you willing/able to drive?</label>
-      <ol id="Car">
+      <ul id="Car">
         <li><input type="radio" id="Yes" name="Car" value="Yes" required><label for="Yes">Yes</label></li>
         <li><input type="radio" id="No" name="Car" value="No"><label for="No">No</label></li>
-      </ol>
+      </ul>
     </div>
 
     <div class="formbox">
