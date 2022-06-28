@@ -9,7 +9,7 @@
   <form id="Form" action={{url}} method="post">
     <div class="formbox">
       <label for="Name">What is your name?</label><br>
-      <input type="text" id="Name" name="Name" placeholder="Name" required><br>
+      <input type="text" id="Name" name="Name" placeholder="Name" maxlength="10" required><br>
     </div>
 
     <div class="formbox">
@@ -33,7 +33,7 @@
         <li><input type="radio" id="SH" name="Style" value="Skating and Hot Chocolate (hand holding optional)"><label for="SH">Skating and Hot Chocolate (hand holding optional)</label></li>
         <li><input type="radio" id="LT" name="Style" value="Laser Tag"><label for="LT">Laser Tag</label></li>
         <li><input type="radio" id="TP" name="Style" value="Trampoline Park"><label for="TP">Trampoline Park</label></li>
-        <li><input type="radio" id="SO" name="Style" value="Other:"><label for="SO">Other: </label><input type="text" id="SOIn" name="other style"></li>
+        <li><input type="radio" id="SO" name="Style" value="Other:"><label for="SO">Other: </label><input type="text" id="SOIn" name="other style" maxlength="50"></li>
       </ul>
     </div>
 
@@ -45,7 +45,7 @@
         <li><input type="radio" id="B" name="Food" value="Burgers"><label for="B">Burgers</label></li>
         <li><input type="radio" id="S" name="Food" value="Steakhouse"><label for="S">Steakhouse</label></li>
         <li><input type="radio" id="V" name="Food" value="Hilarious Vegan Options"><label for="V">Hilarious Vegan Options</label></li>
-        <li><input type="radio" id="FO" name="Food" value="Other:"><label for="FO">Other: </label><input type="text" id="FOIn" name="other food"></li>
+        <li><input type="radio" id="FO" name="Food" value="Other:"><label for="FO">Other: </label><input type="text" id="FOIn" name="other food" maxlength="20"></li>
       </ul>
     </div>
 
