@@ -177,7 +177,13 @@ app.listen(app.get('port'), function(){
 
 async function makeImg(name, data) {
   let name2 = data["Name"];
-  let style = data["Style"];
+  let style;
+  if(data["Style"] != "Other:"){
+    style = data["Style"];
+  }
+  else{
+    style = data["other style"];
+  }
   let fanciness = data["Fanciness"];
   let dressMsg = dress(fanciness);
   let dateTime = data["Date"];
