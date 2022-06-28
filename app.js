@@ -221,21 +221,21 @@ async function makeImg(name, data) {
       }, 650, 162);
       
       // Print Dress fanciness
-      image.print(font, (width-810)/2, 970, {
+      image.print(font, (width-810)/2, 1010, {
         text: dressMsg,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
       }, 810, 66);
 
       // Print date of the date
-      image.print(font, (width-810)/2, 1080, {
+      image.print(font, (width-810)/2, 1120, {
         text: `${date}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
       }, 810, 66);
 
       // Print time of the date
-      image.print(font, (width-810)/2, 1187, {
+      image.print(font, (width-810)/2, 1227, {
         text: `${time}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
         alignmentY: Jimp.VERTICAL_ALIGN_TOP
@@ -247,10 +247,10 @@ async function makeImg(name, data) {
   await Jimp.loadFont(largeFont) // Large Font
     .then(font => {
       // Print Date Activity
-      image.print(font, (width-810)/2, 340, {
+      image.print(font, (width-810)/2, 330, {
         text: `${style}`,
         alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-        alignmentY: Jimp.VERTICAL_ALIGN_TOP
+        alignmentY: Jimp.VERTICAL_ALIGN_CENTER
       }, 810, 505);
       return image;
     });
