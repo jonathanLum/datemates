@@ -50,7 +50,7 @@ app.get('/',function(req,res){
 app.get('/invite/:email/:name',function(req,res){
   var context = {};
   context.title = " - Invite";
-  context.headtext = "Date Invite - Date Mates!";
+  context.headtext = "Date Invite";
   context.url = `/invite/${req.params.email}/${req.params.name}`;
   context.email = atob(req.params.email);
   context.name = atob(req.params.name);
@@ -102,7 +102,7 @@ app.post('/invite/:email/:name', async (req,res) => {
       });
     });
     
-    res.render('formDone', {headtext : "Date Invite - Date Mates!"});
+    res.render('formDone', {headtext : "Date Invite Complete"});
   } catch (error) {
     return next(error);
   }
@@ -113,7 +113,7 @@ app.post('/invite/:email/:name', async (req,res) => {
 app.get('/survey/:email/:name',function(req,res){
   var context = {};
   context.title = " - Survey";
-  context.headtext = "Exit Survey - Date Mates!";
+  context.headtext = "Exit Survey";
   context.url = `/survey/${req.params.email}/${req.params.name}`;
   context.email = atob(req.params.email);
   context.name = atob(req.params.name);
@@ -151,7 +151,7 @@ app.post('/survey/:email/:name',function(req,res){
         console.log('Email sent: ' + info.response);
       }
     });
-    res.render('formDone', {headtext : "Exit Survey - Date Mates!"});
+    res.render('formDone', {headtext : "Exit Survey Complete"});
     //res.send(message);
   } catch (error) {
     return next(error);
